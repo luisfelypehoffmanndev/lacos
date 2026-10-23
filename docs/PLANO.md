@@ -34,8 +34,8 @@ Marque `[x]` assim que cada item estiver pronto **e testado**.
 
 ### 2. Documentação
 - [x] design.md reescrito com a paleta real da marca, tipografia, componentes e telas
-- [ ] PROJETO.md revisado (pilares, cores, fluxo de crise, moderação, limites)
-- [ ] README com como rodar, testar e apresentar
+- [x] PROJETO.md revisado (pilares, cores, fluxo de crise, moderação, limites)
+- [x] README com como rodar, testar e apresentar
 
 ### 3. Estado e dados (TDD)
 - [x] Testes da loja: cadastro/validação, publicar, apoiar, responder, denunciar,
@@ -64,3 +64,9 @@ Marque `[x]` assim que cada item estiver pronto **e testado**.
 - [x] `bun run test` verde, `bun run build` sem erros
 - [x] Prints de todas as telas revisados (desktop e 390 px)
 - [x] Funciona sem internet (build servido localmente)
+
+## Pendente do grupo (fora do código)
+
+- [ ] Registrar as respostas das entrevistas (fichamento, item 8, está em branco). A versão do Gemini
+      tinha inventado essas respostas no PROJETO.md; foram removidas.
+- [ ] Testar no Wi-Fi do local do evento, ou levar o build (`bun run build && bun run preview`).

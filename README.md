@@ -1,54 +1,58 @@
-# Laços — Protótipo de Aplicativo Mobile
+# Laços
 
-> **Conectando histórias e fortalecendo famílias**  
-> Protótipo mobile de alta fidelidade desenvolvido para famílias atípicas e cuidadores de pessoas neurodivergentes e com transtornos psicológicos.  
-> Projeto do 4º Semestre de Psicologia — Faculdade Santo Ângelo (FASA) para o **FASA SUMMIT**.
+Protótipo navegável do **Laços**, rede de apoio para famílias atípicas: comunidade, conteúdos de
+psicólogos e psicoterapia breve. Projeto do curso de Psicologia (4º semestre) da FASA para o
+FASA Summit, 10/11/2026.
 
----
+- **[PROJETO.md](PROJETO.md)** — proposta, fundamentação, ética e limites (fiel ao fichamento).
+- **[design.md](design.md)** — identidade visual, tokens e especificação de cada tela.
+- **[docs/PLANO.md](docs/PLANO.md)** — o que foi refeito e o que está pronto.
+- **[referencias/](referencias)** — fichamento, painel do grupo, logo, mascote e telas de inspiração.
 
-## 🚀 Como Executar o Protótipo
+## Rodar
 
-O servidor já está configurado e pronto para rodar:
+Precisa do [Bun](https://bun.sh) (ou Node 20+ com npm).
 
 ```bash
-# Na pasta do projeto (C:\Users\luisf\Projetos\lacos)
-bun dev
-# ou
-npm run dev
+bun install
+bun dev          # http://localhost:5173
 ```
 
-Abra no navegador em:
-- **Computador:** [http://localhost:5173/](http://localhost:5173/) (com simulador de moldura de iPhone 16 / Android, barra de status dinâmica e controles de apresentação)
-- **Celular Real (na mesma rede Wi-Fi):** Acesse pelo IP de rede exibido no terminal (ex: `http://192.168.100.143:5173/`). Em telas menores que 500px, a moldura se desativa automaticamente e o app assume tela cheia nativa!
+- **No computador:** o app aparece dentro de um celular, com a jornada do usuário ao lado
+  (pular para qualquer tela), **Reiniciar demonstração** e **Ver as 7 telas lado a lado**.
+- **No celular:** na mesma rede Wi-Fi, abra o endereço "Network" que aparece no terminal
+  (ex.: `http://192.168.0.10:5173`). Em telas de até 600 px o app ocupa a tela inteira.
+- Cada tela tem link próprio: `#/inicio`, `#/comunidade`, `#/conteudos`, `#/psicoterapia`,
+  `#/perfil`, `#/telas` (lado a lado).
 
----
+## Apresentar sem internet
 
-## 📱 Telas Implementadas
+Fotos, fontes e marca estão dentro do projeto. Para não depender do servidor de desenvolvimento:
 
-| # | Tela | Inspiração | Destaques |
-|---|---|---|---|
-| 1 | **Boas-Vindas** | `02-ref-boas-vindas.jpeg` & `mascote.jpeg` | Mascote oficial afetuoso, proposta de valor e início rápido. |
-| 2 | **Identificação & Cadastro** | `03-ref-login-cadastro.jpeg` | Escolha de avatares inclusivos, identificação do papel familiar e opções neutras de gênero. |
-| 3 | **Menu Principal (Hub)** | `04-ref-menu-principal.jpeg` | Saudação personalizada, reflexão do dia sem positividade tóxica, check-in emocional e os 3 cards dos pilares. |
-| 4 | **Pilar 1: Comunidade** | `05-ref-comunidade-twitter.jpeg` | Feed estilo microblog, abas temáticas, reações empáticas (`🤗 Abraço`, `💙 Compreendo`, `🌱 Força`), filtro de conteúdo sensível (CW) e novo relato com checklist ético do ECA. |
-| 5 | **Pilar 2: Conteúdos & Mural** | `07-ref-conteudos-agendamento.jpeg` | Cards educativos sobre crises sensoriais e direitos, leitor de artigo completo com **Player de Áudio em Voz Alta (pt-BR)** e referências científicas (Misquiatti et al., 2015). |
-| 6 | **Pilar 3: Psicoterapia Breve** | `07-ref-conteudos-agendamento.jpeg` | Explicação dos limites da abordagem, vitrine de psicólogos com registro CRP ativo, horários para agendamento demonstrativo e aceite ético (Resoluções CFP 13/2022 e 09/2024). |
-| 7 | **Perfil do Cuidador** | `06-ref-perfil.jpeg` | Resumo cadastral, sessões agendadas com opção de desmarcar, artigos salvos, transparência LGPD e botão de reiniciar demonstração. |
+```bash
+bun run build
+bun run preview  # serve a pasta dist/ e mostra o endereço para os celulares
+```
 
----
+## Testes
 
-## 🌿 Recursos Exclusivos de Acessibilidade & Anti-AI Slop
+```bash
+bun run test     # 60 testes: dados, navegação e os fluxos de cada tela
+```
 
-- **Blindagem Anti-AI Slop:** Paleta orgânica terrosa (verde-sálvia, terracota, mostarda e lavanda sobre linho suave), tipografia **Atkinson Hyperlegible** (feita pelo Braille Institute), zero gradientes roxos sintéticos e zero contadores falsos de vaidade.
-- **Modo Calmo (Sensory Safe):** Alternador no painel que reduz a saturação de cor em 40% e desativa transições e animações, ideal para quem está sob sobrecarga sensorial.
-- **Ajuste de Tamanho do Texto:** Suporte a 1x, 1.1x e 1.2x mantendo a proporção de leitura.
-- **ScreenPortal:** Todos os modais e folhas de leitura abrem estritamente dentro da tela do aparelho simulado.
-- **Canal de Apoio Imediato:** Banner permanente do **CVV 188** com atalho para discagem telefônica.
+## Estrutura
 
----
-
-## 📂 Arquivos de Especificação
-
-- **[PROJETO.md](file:///C:/Users/luisf/Projetos/lacos/PROJETO.md):** Fundamentação teórica, análise de mercado, personas reais, legislação (CFP, LGPD, ECA).
-- **[design.md](file:///C:/Users/luisf/Projetos/lacos/design.md):** Sistema de design tokens, regras de contraste WCAG AA/AAA e anatomia visual.
-- **[referencias/](file:///C:/Users/luisf/Projetos/lacos/referencias):** Pasta com todas as 8 imagens originais e o PDF do fichamento da FASA.
+```
+src/
+  app/            o aplicativo
+    telas/        uma por tela da jornada
+    componentes/  folha, abas, avatar, laço, avisos, relato...
+    navegacao.tsx pilha de telas e links por tela
+  estado/         dados do usuário (zustand, salvo no navegador)
+  dados/          relatos, conteúdos e psicólogos fictícios
+  palco/          moldura de celular e painel de apresentação
+  estilos/        tokens de cor e tipografia
+public/
+  marca/          logo, letreiro e mascote sem fundo
+  img/            capas de conteúdo e fotos dos psicólogos
+```
