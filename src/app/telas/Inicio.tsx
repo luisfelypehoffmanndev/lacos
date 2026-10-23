@@ -91,7 +91,7 @@ function BlocoPilar({ titulo, descricao, rota, cores, icone, forma, largo }: Pil
   );
 }
 
-/** Tela 3 — ref. 04: saudação, mensagem do dia, os três pilares, apoio em crise e perfil. */
+/** Tela 3 — ref. 04: saudação, mensagem do dia, os três pilares (na ordem das cores do letreiro), apoio em crise e perfil. */
 export function Inicio() {
   const { ir } = useNavegacao();
   const usuario = useLoja((s) => s.usuario);
@@ -115,6 +115,15 @@ export function Inicio() {
 
       <section aria-label="O que você quer fazer agora?" className="mt-7 grid grid-cols-2 gap-3 px-5">
         <BlocoPilar
+          largo
+          titulo="Agende uma sessão de psicoterapia breve"
+          descricao="Escuta profissional para você, que cuida."
+          rota={{ tela: 'psicoterapia' }}
+          cores="sobre-azul bg-azul text-white"
+          forma="psicoterapia"
+          icone={<IconeSessao className="h-7 w-8 text-azul" />}
+        />
+        <BlocoPilar
           titulo="Comunidade"
           descricao="Troque vivências com outras famílias."
           rota={{ tela: 'comunidade' }}
@@ -129,15 +138,6 @@ export function Inicio() {
           cores="bg-laranja text-tinta"
           forma="conteudos"
           icone={<Newspaper size={22} strokeWidth={2} className="text-laranja-forte" />}
-        />
-        <BlocoPilar
-          largo
-          titulo="Agende uma sessão de psicoterapia breve"
-          descricao="Escuta profissional para você, que cuida."
-          rota={{ tela: 'psicoterapia' }}
-          cores="sobre-azul bg-azul text-white"
-          forma="psicoterapia"
-          icone={<IconeSessao className="h-7 w-8 text-azul" />}
         />
       </section>
 

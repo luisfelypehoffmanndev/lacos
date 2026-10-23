@@ -41,7 +41,7 @@ function Campo({ rotulo, erro, ...input }: { rotulo: string; erro?: string } & I
         id={id}
         aria-invalid={erro ? true : undefined}
         aria-describedby={erro ? `${id}-erro` : undefined}
-        className="t-corpo mt-1 w-full border-b-2 placeholder:text-tinta-suave/60 border-linha bg-transparent py-2 outline-none focus:border-lilas-forte aria-invalid:border-erro"
+        className="t-corpo mt-1 w-full border-b-2 placeholder:text-tinta-suave/60 border-linha bg-transparent py-2 outline-none focus:border-azul aria-invalid:border-erro"
         {...input}
       />
       {erro && (
@@ -87,7 +87,7 @@ export function Cadastro({ modo }: { modo?: 'entrar' | 'editar' }) {
 
   return (
     <div className="sem-barra min-h-0 flex-1 overflow-y-auto bg-fundo">
-      <div className="relative bg-lilas-claro px-4 pt-[var(--topo-seguro)] pb-24">
+      <div className="relative bg-ciano-claro px-4 pt-[var(--topo-seguro)] pb-24">
         <div className="flex h-14 items-center">
           {podeVoltar ? (
             <button type="button" onClick={voltar} aria-label="Voltar" className="grid size-11 place-items-center rounded-full bg-white">
@@ -163,7 +163,7 @@ export function Cadastro({ modo }: { modo?: 'entrar' | 'editar' }) {
           <button
             type="button"
             onClick={() => ir(modo === 'entrar' ? { tela: 'cadastro' } : { tela: 'cadastro', modo: 'entrar' })}
-            className="min-h-11 font-semibold text-lilas-forte underline underline-offset-4"
+            className="min-h-11 font-semibold text-azul underline underline-offset-4"
           >
             {modo === 'entrar' ? 'Criar cadastro' : 'Entrar'}
           </button>

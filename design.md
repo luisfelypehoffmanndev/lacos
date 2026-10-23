@@ -61,13 +61,19 @@ lilás `#D6AFF8` → pêssego `#FAA048` → amarelo `#F9BB2D`. Toda a paleta sai
 
 ### Quem usa cada cor (para não ficar tudo azul)
 
+A **ordem** em que as cores aparecem segue o letreiro, da esquerda para a direita: marinho → azul →
+ciano → lilás → laranja → amarelo. Vale para as abas, os blocos do Início e a passagem boas-vindas
+(azul) → cadastro (ciano).
+
+
 | Cor | Onde aparece |
 |---|---|
 | Azul | Só na **Psicoterapia** (topo, horários, solicitar) e na **boas-vindas** (o momento da marca). O fichamento pede a psicoterapia "identificada pela cor azul". |
-| Lilás | Comunidade: novo relato, apoiar, responder, denunciar; topo do **cadastro** (lilás-claro). |
+| Ciano | Topo do **cadastro** (ciano-claro), fundo da aba Terapia ativa, privacidade, iniciais na comunidade. |
+| Lilás | Comunidade: novo relato, apoiar, responder, denunciar. |
 | Laranja | Conteúdos: filtros, título do texto, salvar. |
-| Amarelo | Pessoa que usa o app: inicial no avatar, topo do **Perfil** (amarelo-claro), aba Início. |
-| Ciano | Apoio: aba Perfil, privacidade, iniciais na comunidade. |
+| Amarelo | Pessoa que usa o app: inicial no avatar, topo do **Perfil** (amarelo-claro), aba Perfil. |
+| Marinho | Aba Início, faixa de crise, palco. |
 | `tinta` | Ações neutras (Entrar no Laços, Enviar, pílulas selecionadas). |
 
 No Perfil, cada atalho leva um ícone na cor da área a que pertence (sessões em azul, salvos em
@@ -128,8 +134,9 @@ Nada abaixo de 12,5 px. Sem rótulos em CAIXA ALTA espaçada.
 
 ## 5. Telas
 
-Navegação inferior com 5 abas, rótulo sempre visível: **Início, Comunidade, Conteúdos,
-Terapia, Perfil**. A aba ativa ganha a cor do seu pilar.
+Navegação inferior com 5 abas, rótulo sempre visível, na ordem das cores do letreiro: **Início**
+(marinho), **Terapia** (azul), **Comunidade** (lilás), **Conteúdos** (laranja), **Perfil** (amarelo).
+A aba ativa ganha a cor da sua área.
 
 ### 1. Boas-vindas — ref. 02 + painel do grupo
 - Fundo `azul` cheio, laços coloridos dando voltas atrás do conteúdo.
@@ -139,7 +146,7 @@ Terapia, Perfil**. A aba ativa ganha a cor do seu pilar.
 - Botões: **Criar meu cadastro** (branco) e **Já tenho cadastro** (texto).
 
 ### 2. Cadastro — ref. 03
-- Topo lilás-claro com curva, cartão branco sobreposto, campos com sublinhado (como na ref. 03).
+- Topo ciano-claro com curva, cartão branco sobreposto, campos com sublinhado (como na ref. 03).
 - Campos (fichamento, item 13: "Login: Nome e Email; mais informações não serão necessárias"):
   - Como quer ser chamado(a) — obrigatório
   - E-mail — obrigatório, validado
@@ -151,9 +158,9 @@ Terapia, Perfil**. A aba ativa ganha a cor do seu pilar.
 ### 3. Início (menu principal) — ref. 04
 - Topo: letreiro à esquerda, foto/inicial à direita (abre o Perfil).
 - Saudação grande: "Olá, {nome}." + mensagem do dia, sincera e sem cobrança.
-- Pilares em blocos de cor chapada com uma composição geométrica no canto (semicírculos e quartos de círculo do quadro de inspirações do grupo, em tons da cor do pilar), ícone num círculo branco e texto embaixo:
-  Comunidade (lilás) e Conteúdos (laranja) lado a lado; **Agende uma sessão de psicoterapia
-  breve** (azul) em largura total — nome usado no fichamento.
+- Pilares na ordem das cores do letreiro, em blocos de cor chapada com uma composição geométrica no canto (semicírculos e quartos de círculo do quadro de inspirações do grupo, em tons da cor do pilar), ícone num círculo branco e texto embaixo:
+  **Agende uma sessão de psicoterapia breve** (azul) em largura total — nome usado no fichamento —
+  e, abaixo, Comunidade (lilás) e Conteúdos (laranja) lado a lado.
 - Faixa de apoio em crise (CVV 188, SAMU 192).
 - Atalho para **Sugestões e denúncias** (fichamento, item 14).
 
