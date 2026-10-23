@@ -110,7 +110,7 @@ export function Cadastro({ modo }: { modo?: 'entrar' | 'editar' }) {
       <form
         noValidate
         onSubmit={enviar}
-        className="relative z-10 mx-5 -mt-20 space-y-5 rounded-[28px] bg-superficie p-6 shadow-[0_18px_40px_-18px_rgba(18,24,74,0.35)]"
+        className="relative z-10 mx-5 -mt-20 space-y-5 rounded-[28px] bg-superficie p-6 shadow-[0_18px_40px_-18px_rgba(14,31,85,0.35)]"
       >
         <h1 className="t-lg text-center">{textos.titulo}</h1>
 

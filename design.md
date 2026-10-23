@@ -36,37 +36,46 @@ O que evitamos, e por quê:
 
 ## 2. Cores
 
-Extraídas do logo, do letreiro e do painel de briefing do grupo (`referencias/01-painel-geral-briefing.jpeg`).
+Amostradas dos pixels do letreiro e do símbolo originais (`referencias/Letter.jpeg` e `Logo.jpeg`),
+da esquerda para a direita: marinho `#0C2E8B` → royal `#1040BB`/`#2B79F6` → ciano `#6ACAF2` →
+lilás `#D6AFF8` → pêssego `#FAA048` → amarelo `#F9BB2D`. Toda a paleta sai daí.
 
 ### Base
 
 | Token | Hex | Papel |
 |---|---|---|
-| `noite` | `#0B1478` | Fundo do palco de apresentação (o mesmo do painel do grupo) |
-| `tinta` | `#12184A` | Texto principal (15,4:1 sobre `fundo`) |
-| `tinta-suave` | `#5A6185` | Texto secundário, datas, legendas (5,5:1 sobre `fundo`) |
-| `fundo` | `#F4F5FB` | Fundo das telas (branco levemente azulado, não creme) |
+| `noite` | `#0A2480` | Fundo do palco e faixa de crise (o marinho do início do letreiro) |
+| `tinta` | `#0E1F55` | Texto principal (14,4:1 sobre `fundo`) |
+| `tinta-suave` | `#56618A` | Texto secundário, datas, legendas (5,6:1 sobre `fundo`) |
+| `fundo` | `#F4F6FB` | Fundo das telas (branco levemente azulado, não creme) |
 | `superficie` | `#FFFFFF` | Cartões, folhas, campos |
-| `linha` | `#E2E4F0` | Divisores e contornos |
+| `linha` | `#E1E6F2` | Divisores e contornos |
 
 ### Pilares (fichamento, item 11: "seções identificadas por nome e cores específicas")
 
-| Pilar | Superfície | Texto sobre ela | Cor de ação | Contraste |
+| Pilar | Superfície | Texto sobre ela | Cor de ação / texto colorido | Contraste |
 |---|---|---|---|---|
-| Comunidade | `lilas` `#CDB2F0` | `tinta` | `lilas-forte` `#7646C4` (texto branco) | 8,9:1 / 6,1:1 |
-| Conteúdos | `laranja` `#E36A2A` | `tinta` | `laranja-forte` `#A9470F` (texto sobre branco) | 5,1:1 / 5,8:1 |
-| Psicoterapia breve | `azul` `#2F3FE0` | branco | `azul` | 7,5:1 |
+| Comunidade | `lilas` `#D6AFF8` | `tinta` | `lilas-forte` `#7A45CF` (texto branco) | 8,4:1 / 5,9:1 |
+| Conteúdos | `laranja` `#FAA048` | `tinta` | `laranja-forte` `#A4520C` (sobre branco) | 7,6:1 / 5,5:1 |
+| Psicoterapia breve | `azul` `#1D4FD8` | branco | `azul` | 6,6:1 |
 
-O azul é também a cor de ação geral (botões principais, aba ativa) — é a cor dominante do logo.
-O fichamento pede que a psicoterapia seja "identificada pela cor azul".
+O azul é também a cor de ação geral (botões, aba ativa): é o royal do logo. O fichamento pede que a
+psicoterapia seja "identificada pela cor azul".
 
-### Fita (só no traço do laço)
+Apoio: `ciano` `#6ACAF2` e `amarelo` `#F9BB2D` (iniciais na comunidade, elos do bloco de psicoterapia).
 
-`#1D3FD6` → `#5BC8EC` → `#C9A7EE` → `#F59A52` → `#F6BE2C`
+### Fita (traço do laço)
+
+`#0C2E8B` → `#2B79F6` → `#6ACAF2` → `#D6AFF8` → `#FAA048` → `#F9BB2D`
+
+### Formas dos blocos do Início
+
+Tons de cada pilar: lilás `#BF8CF2`/`#EBDAFC`; laranja `#FBB873`/`#E57E26`;
+azul `#1440B8`/`#3D72F2` com elos `#6ACAF2` e `#F9BB2D`.
 
 ### Apoio em crise
 
-Faixa em `noite` com texto branco (15:1). Sóbria, sem vermelho de alarme.
+Faixa em `noite` com texto branco (12:1). Sóbria, sem vermelho de alarme.
 
 ---
 

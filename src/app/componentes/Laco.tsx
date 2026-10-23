@@ -1,7 +1,7 @@
 import { useId } from 'react';
 
 /** As cores da fita do logo, na ordem do letreiro. */
-const FITA = ['#1D3FD6', '#5BC8EC', '#C9A7EE', '#F59A52', '#F6BE2C'];
+const FITA = ['#0C2E8B', '#2B79F6', '#6ACAF2', '#D6AFF8', '#FAA048', '#F9BB2D'];
 
 function Gradiente({ id }: { id: string }) {
   return (
@@ -42,8 +42,8 @@ export function Laco({ variante, className = '' }: { variante: 'grande' | 'fina'
         <Gradiente id={id} />
       </defs>
       <g strokeLinecap="round">
-        <path d="M-60 150 C 90 -30 330 20 300 190 C 270 340 40 300 80 170 C 110 70 330 60 460 230" stroke="#4A63EE" strokeWidth="30" />
-        <path d="M310 -40 C 450 70 430 270 330 360" stroke="#8FDDF3" strokeWidth="16" opacity="0.55" />
+        <path d="M-60 150 C 90 -30 330 20 300 190 C 270 340 40 300 80 170 C 110 70 330 60 460 230" stroke="#3D72F2" strokeWidth="30" />
+        <path d="M310 -40 C 450 70 430 270 330 360" stroke="#8ED7EE" strokeWidth="16" opacity="0.55" />
         <path
           d="M-50 700 C 60 560 260 590 250 700 C 240 810 70 790 110 690 C 150 590 340 590 450 740"
           stroke={`url(#${id})`}

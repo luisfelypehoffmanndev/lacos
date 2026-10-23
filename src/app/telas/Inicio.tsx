@@ -41,24 +41,24 @@ const FORMAS: Record<'comunidade' | 'conteudos' | 'psicoterapia', ReactNode> = {
   // Dois círculos que se encostam: duas pessoas conversando.
   comunidade: (
     <>
-      <circle cx="74" cy="22" r="36" fill="#B48BE8" />
-      <circle cx="108" cy="62" r="26" fill="#E6D6F8" />
+      <circle cx="74" cy="22" r="36" fill="#BF8CF2" />
+      <circle cx="108" cy="62" r="26" fill="#EBDAFC" />
     </>
   ),
   // Quartos de círculo concêntricos, como páginas abertas no canto.
   conteudos: (
     <>
-      <path d="M110 0 V86 A86 86 0 0 1 24 0 Z" fill="#F59A52" />
-      <path d="M110 0 V44 A44 44 0 0 1 66 0 Z" fill="#B9501C" />
+      <path d="M110 0 V86 A86 86 0 0 1 24 0 Z" fill="#FBB873" />
+      <path d="M110 0 V44 A44 44 0 0 1 66 0 Z" fill="#E57E26" />
     </>
   ),
   // Meia-lua, quarto de círculo e os dois elos do ícone do grupo.
   psicoterapia: (
     <>
-      <path d="M150 0 V72 A72 72 0 0 1 78 0 Z" fill="#1D3FD6" />
-      <path d="M36 180 A56 56 0 0 1 148 180 Z" fill="#4A63EE" />
-      <circle cx="64" cy="98" r="22" fill="none" stroke="#5BC8EC" strokeWidth="8" />
-      <circle cx="94" cy="98" r="22" fill="none" stroke="#F6BE2C" strokeWidth="8" />
+      <path d="M150 0 V72 A72 72 0 0 1 78 0 Z" fill="#1440B8" />
+      <path d="M36 180 A56 56 0 0 1 148 180 Z" fill="#3D72F2" />
+      <circle cx="64" cy="98" r="22" fill="none" stroke="#6ACAF2" strokeWidth="8" />
+      <circle cx="94" cy="98" r="22" fill="none" stroke="#F9BB2D" strokeWidth="8" />
     </>
   ),
 };
@@ -82,7 +82,7 @@ function BlocoPilar({ titulo, descricao, rota, cores, icone, forma, largo }: Pil
       >
         {FORMAS[forma]}
       </svg>
-      <span className="grid size-12 place-items-center rounded-full bg-white shadow-[0_6px_16px_-8px_rgba(18,24,74,0.5)]">{icone}</span>
+      <span className="grid size-12 place-items-center rounded-full bg-white shadow-[0_6px_16px_-8px_rgba(14,31,85,0.5)]">{icone}</span>
       <span className="mt-6 block">
         <span className="t-md block">{titulo}</span>
         <span className="t-sm mt-1 block opacity-85">{descricao}</span>

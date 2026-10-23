@@ -164,7 +164,7 @@ export function Perfil({ abrir }: { abrir?: 'sessoes' }) {
       </header>
 
       <div className="relative -mt-20 space-y-3 px-5 pb-8">
-        <section className="rounded-[24px] bg-superficie p-6 text-center shadow-[0_14px_32px_-16px_rgba(18,24,74,0.3)]">
+        <section className="rounded-[24px] bg-superficie p-6 text-center shadow-[0_14px_32px_-16px_rgba(14,31,85,0.3)]">
           <Avatar nome={usuario.nome || '?'} foto={usuario.foto} tamanho={88} className="mx-auto ring-4 ring-azul-claro" />
           <p className="t-md mt-3">{usuario.nome || 'Visitante'}</p>
           <p className="t-sm text-tinta-suave">{papelDoUsuario(usuario.genero)}</p>
@@ -173,7 +173,7 @@ export function Perfil({ abrir }: { abrir?: 'sessoes' }) {
           )}
         </section>
 
-        <section className="space-y-3 rounded-[24px] bg-superficie p-5 shadow-[0_14px_32px_-20px_rgba(18,24,74,0.25)]">
+        <section className="space-y-3 rounded-[24px] bg-superficie p-5 shadow-[0_14px_32px_-20px_rgba(14,31,85,0.25)]">
           <p className="t-sm flex items-center gap-3">
             <Mail size={18} className="shrink-0 text-azul" aria-hidden />
             <span className="sr-only">E-mail: </span>

@@ -35,7 +35,7 @@ export function Folha({ aberta, aoFechar, titulo, children }: Props) {
         aria-modal="true"
         aria-labelledby={idTitulo}
         tabIndex={-1}
-        className="anim-subir relative flex max-h-[88%] flex-col rounded-t-[28px] bg-superficie shadow-[0_-12px_40px_-12px_rgba(18,24,74,0.35)] outline-none"
+        className="anim-subir relative flex max-h-[88%] flex-col rounded-t-[28px] bg-superficie shadow-[0_-12px_40px_-12px_rgba(14,31,85,0.35)] outline-none"
       >
         <div aria-hidden className="mx-auto mt-2.5 h-1.5 w-10 rounded-full bg-linha" />
         <div className="flex items-start gap-3 px-5 pt-3 pb-3">

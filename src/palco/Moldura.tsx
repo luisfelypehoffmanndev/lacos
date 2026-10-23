@@ -34,7 +34,7 @@ export function Moldura({ children, topoEscuro, escala = 1 }: { children: ReactN
     <div style={{ width: LARGURA_MOLDURA * escala, height: ALTURA_MOLDURA * escala }} className="shrink-0">
       <div
         style={{ width: LARGURA_MOLDURA, height: ALTURA_MOLDURA, padding: BORDA, transform: `scale(${escala})` }}
-        className="origin-top-left rounded-[62px] bg-[#05092e] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.8),inset_0_0_0_2px_rgba(255,255,255,0.08)]"
+        className="origin-top-left rounded-[62px] bg-[#06143f] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.8),inset_0_0_0_2px_rgba(255,255,255,0.08)]"
       >
         <div className="relative h-full w-full overflow-hidden rounded-[50px] bg-fundo" style={{ transform: 'translateZ(0)' }}>
           {children}

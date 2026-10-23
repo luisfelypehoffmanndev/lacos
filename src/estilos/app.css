@@ -5,27 +5,27 @@
   --font-sans: 'Lexend Variable', system-ui, sans-serif;
   --font-titulo: 'Bricolage Grotesque Variable', 'Lexend Variable', sans-serif;
 
-  --color-noite: #0b1478;
-  --color-tinta: #12184a;
-  --color-tinta-suave: #5a6185;
-  --color-fundo: #f4f5fb;
+  --color-noite: #0a2480;
+  --color-tinta: #0e1f55;
+  --color-tinta-suave: #56618a;
+  --color-fundo: #f4f6fb;
   --color-superficie: #ffffff;
-  --color-linha: #e2e4f0;
+  --color-linha: #e1e6f2;
   --color-erro: #b42318;
 
-  --color-azul: #2f3fe0;
-  --color-azul-escuro: #2331b8;
-  --color-azul-claro: #e8eafd;
-  --color-lilas: #cdb2f0;
-  --color-lilas-forte: #7646c4;
-  --color-lilas-claro: #f3edfc;
-  --color-laranja: #e36a2a;
-  --color-laranja-forte: #a9470f;
-  --color-laranja-claro: #fdede3;
-  --color-ciano: #5bc8ec;
-  --color-ciano-claro: #d3f1fa;
-  --color-amarelo: #f6be2c;
-  --color-amarelo-claro: #fcecc0;
+  --color-azul: #1d4fd8;
+  --color-azul-escuro: #1640b8;
+  --color-azul-claro: #e7eefd;
+  --color-lilas: #d6aff8;
+  --color-lilas-forte: #7a45cf;
+  --color-lilas-claro: #f5ecfe;
+  --color-laranja: #faa048;
+  --color-laranja-forte: #a4520c;
+  --color-laranja-claro: #fef0e2;
+  --color-ciano: #6acaf2;
+  --color-ciano-claro: #d7f1fc;
+  --color-amarelo: #f9bb2d;
+  --color-amarelo-claro: #fdedc0;
 }
 
 @layer base {
