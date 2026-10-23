@@ -22,12 +22,12 @@ export function Laco({ variante, className = '' }: { variante: 'grande' | 'fina'
   const id = useId();
   if (variante === 'fina') {
     return (
-      <svg aria-hidden viewBox="0 0 240 240" fill="none" className={className}>
+      <svg aria-hidden viewBox="0 0 240 240" fill="none" overflow="visible" className={className}>
         <defs>
           <Gradiente id={id} />
         </defs>
         <path
-          d="M20 -10 C 40 90, 200 40, 170 120 C 140 200, 60 150, 110 100 C 160 50, 250 120, 260 200"
+          d="M90 -150 C 40 -110, 10 -60, 20 -10 C 40 90, 200 40, 170 120 C 140 200, 60 150, 110 100 C 160 50, 250 120, 260 200"
           stroke={`url(#${id})`}
           strokeWidth="7"
           strokeLinecap="round"
