@@ -1,181 +1,187 @@
-# Laços — Sistema de Design & Especificação de Interface (UI/UX)
+# Laços — Design do protótipo
 
-> **Diretrizes Visuais, Design Tokens e Telas do Protótipo**  
-> **Projeto Acadêmico:** Curso de Psicologia (4º Semestre) — FASA (Faculdade Santo Ângelo)  
-> **Evento:** FASA SUMMIT (Novembro/2026)  
-> **Skill Base:** `frontend-design`  
-> **Compromisso:** Visual intencional, acessível, humanizado e estritamente livre de clichês de inteligência artificial (Anti-AI Slop).
+> Sistema visual e especificação das telas. Tudo o que está aqui existe no código;
+> se mudar um, mude o outro.
+> Projeto de Psicologia (4º semestre, FASA) para o FASA Summit, 10/11/2026.
 
 ---
 
-## 1. Filosofia de Design & Identidade
+## 1. Ponto de partida
 
-O design do **Laços** evita deliberadamente os dois extremos mais comuns em aplicativos do gênero:
-1. **O ambiente hospitalar/clínico frio:** fundos brancos assépticos, azul-ciano cirúrgico e fontes técnicas que aumentam a sensação de adoecimento e despersonalização.
-2. **O ambiente infantil/creche:** tons pastel açucarados e elementos fofinhos que infantilizam o cuidador adulto e reduzem a seriedade da sua rotina diária.
+A identidade **já foi definida pelo grupo** (fichamento, item 19: "Escolher nome, logo, paleta
+de cores — OK"). O design do app parte dela, não a reinventa:
 
-A identidade visual do **Laços** remete a **uma sala de estar acolhedora no final da tarde**: superfícies foscas e aquecidas, contrastes firmes, tipografia humanista e cores concentradas nos pontos de ação e identificação dos pilares.
+| Peça | Arquivo | Uso no app |
+|---|---|---|
+| Símbolo (cérebro + balão + laço) | `public/marca/simbolo.png` | Ícone da aba do navegador, cabeçalho do palco |
+| Letreiro "laços" | `public/marca/letreiro.png` | Cabeçalho das telas internas |
+| Letreiro branco | `public/marca/letreiro-branco.png` | Sobre fundos azuis (boas-vindas, cadastro) |
+| Mascote (celular com cérebro e laço) | `public/marca/mascote.png` | Boas-vindas, estados vazios |
 
----
+Os originais em JPEG estão em `referencias/`. As versões PNG têm o fundo branco removido.
 
-## 2. Regras Estritas Anti-AI Slop
+**A ideia que amarra tudo: o laço.** A fita colorida do logo (azul → ciano → lilás → laranja →
+amarelo) aparece como traço contínuo que dá voltas — grande na tela de boas-vindas (como na
+referência 02), discreta atrás da saudação do Início e nas texturas dos cartões dos pilares.
+É o único elemento "decorativo" do app. Todo o resto é quieto.
 
-Para evitar o visual sintético e repetitivo que caracteriza interfaces geradas por IA, este projeto segue regras de eliminação de vícios:
-
-- ❌ **Sem degradês roxos e cósmicos genéricos:** Banido qualquer uso de gradientes roxo-índigo (`from-purple-500 to-indigo-600`) como "truque" de modernidade.
-- ❌ **Sem o clichê "SaaS Card Kit":** Não empilhar cards com o mesmo border-radius, mesma sombra flutuante cinza e borda idêntica em todas as seções. Cada tipo de dado (post de comunidade, artigo, card de psicólogo) tem sua própria anatomia e ritmo visual.
-- ❌ **Sem métricas de vaidade falsas:** Proibido exibir contadores vazios como "Mais de 10.000 vidas transformadas" ou contagens de likes em feeds de desabafo de mães exaustas.
-- ❌ **Sem rótulos em caixa alta com tracking esticado:** Evitar títulos artificiais do tipo `FEATURE — EXPERIÊNCIA DO USUÁRIO`. Usar títulos em caixa baixa/alta normal e diretos.
-- ❌ **Sem positividade tóxica no copywriting:** Todo texto fala com sinceridade e respeito à dor do usuário. Nunca usar frases como *"Tudo vai dar certo se você sorrir!"*.
-- ❌ **Sem animações com bounce histérico:** Micro-interações respeitam `prefers-reduced-motion` e mantêm tempos suaves de 200–260ms.
-
----
-
-## 3. Tokens de Cor & Acessibilidade (WCAG 2.2 AA/AAA)
-
-### Cores Estruturais
-| Token | Hex | Papel na Interface | Contraste |
-|---|---|---|---|
-| `canvas-base` | `#FAF6F0` | Fundo geral da aplicação (off-white aquecido, reduz fadiga visual) | — |
-| `surface-card` | `#FFFFFF` | Superfície de cards e áreas interativas | 1.1:1 sobre canvas |
-| `surface-subtle` | `#F4EEE5` | Fundos de campos de entrada e divisores suaves | 1.2:1 sobre canvas |
-| `ink-main` | `#1A2826` | Texto primário (verde-floresta quase preto, acolhedor e profundo) | 14.2:1 sobre canvas (AAA) |
-| `ink-muted` | `#536360` | Textos secundários, datas, metadados e legendas | 5.1:1 sobre canvas (AA) |
-| `border-soft` | `#E3DCD1` | Linhas de contorno sutis e divisores funcionais | 1.4:1 sobre canvas |
-
-### Cores Temáticas dos Pilares (Alinhadas ao Fichamento FASA)
-Cada pilar possui uma cor de assinatura reconhecível e harmoniosa:
-
-| Pilar | Cor Primária | Fundo Suave (Badge/Card) | Significado Semiótico |
-|---|---|---|---|
-| **Pilar 1: Comunidade** | `#D46E49` (Terracota Quente) | `#FCEEE7` | Calor humano, abraço, troca orgânica entre famílias atípicas |
-| **Pilar 2: Conteúdos (Mural)** | `#C7912E` (Âmbar Mostarda) | `#FBF3DF` | Esclarecimento, orientação educativa e combate à desinformação |
-| **Pilar 3: Psicoterapia Breve** | `#7567AF` (Lavanda Calmo) | `#EFEBF7` | Introspecção, cuidado clínico, serenidade e acolhimento com CRP |
-| **Suporte Geral (CTA)** | `#336C63` (Verde-Sálvia Profundo) | `#E5EFEA` | Equilíbrio e ação confiante para botões principais |
-| **Ajuda Imediata (Crise/CVV)** | `#2B446E` (Azul-Petróleo Noturno) | `#EAF0F9` | Estabilidade e sobriedade para canal de emergência (CVV 188) |
-
-### Modo Calmo (Sensory Safe Mode)
-O app inclui um alternador de **Modo Calmo** acessível no topo ou no perfil:
-- Reduz a saturação geral de cores em 40%.
-- Desliga transições automáticas e animações contínuas.
-- Aumenta o espaçamento entre linhas e o tamanho mínimo da fonte para leitura desobstruída.
+O que evitamos, e por quê:
+- **Clima de hospital** (branco puro, azul-ciano cirúrgico): aumenta a sensação de doença.
+- **Clima infantil** (pastel açucarado, tudo arredondado demais): o usuário é o adulto que cuida.
+- **Métricas de vaidade**: nada de "10.000 famílias atendidas". Contagens só onde a interação
+  existe de fato (respostas e apoios num relato).
+- **Positividade tóxica**: nenhum texto promete que "vai ficar tudo bem".
 
 ---
 
-## 4. Tipografia & Escala de Leitura
+## 2. Cores
 
-- **Família Primária (Interface & Conteúdo):** `Atkinson Hyperlegible` (ou `Inter` como fallback limpo). Desenvolvida especificamente pelo *Braille Institute* para máxima legibilidade, com distinção clara entre caracteres críticos (`I`, `l`, `1`, `O`, `0`).
-- **Família de Apoio (Títulos e Boas-Vindas):** `Nunito` / `Fraunces Soft`, trazendo curvas humanas que remetem a afeto sem tom infantil.
+Extraídas do logo, do letreiro e do painel de briefing do grupo (`referencias/01-painel-geral-briefing.jpeg`).
 
-| Nível | Tamanho | Entrelinha | Peso | Uso |
+### Base
+
+| Token | Hex | Papel |
+|---|---|---|
+| `noite` | `#0B1478` | Fundo do palco de apresentação (o mesmo do painel do grupo) |
+| `tinta` | `#12184A` | Texto principal (15,4:1 sobre `fundo`) |
+| `tinta-suave` | `#5A6185` | Texto secundário, datas, legendas (5,5:1 sobre `fundo`) |
+| `fundo` | `#F4F5FB` | Fundo das telas (branco levemente azulado, não creme) |
+| `superficie` | `#FFFFFF` | Cartões, folhas, campos |
+| `linha` | `#E2E4F0` | Divisores e contornos |
+
+### Pilares (fichamento, item 11: "seções identificadas por nome e cores específicas")
+
+| Pilar | Superfície | Texto sobre ela | Cor de ação | Contraste |
 |---|---|---|---|---|
-| `hero` | 28px | 34px | SemiBold (600) | Boas-vindas e frases principais de impacto |
-| `title-lg` | 22px | 28px | SemiBold (600) | Títulos das telas dos pilares e saudações |
-| `title-md` | 18px | 24px | Medium (500) | Nomes de profissionais e títulos de artigos |
-| `body-main` | 16px | 24px | Regular (400) | Textos de desabafos e parágrafos de artigos |
-| `body-sm` | 14px | 20px | Regular (400) | Informações secundárias e formulários |
-| `caption` | 12px | 16px | Medium (500) | Badges de tags e registros de CRP |
+| Comunidade | `lilas` `#CDB2F0` | `tinta` | `lilas-forte` `#7646C4` (texto branco) | 8,9:1 / 6,1:1 |
+| Conteúdos | `laranja` `#E36A2A` | `tinta` | `laranja-forte` `#A9470F` (texto sobre branco) | 5,1:1 / 5,8:1 |
+| Psicoterapia breve | `azul` `#2F3FE0` | branco | `azul` | 7,5:1 |
+
+O azul é também a cor de ação geral (botões principais, aba ativa) — é a cor dominante do logo.
+O fichamento pede que a psicoterapia seja "identificada pela cor azul".
+
+### Fita (só no traço do laço)
+
+`#1D3FD6` → `#5BC8EC` → `#C9A7EE` → `#F59A52` → `#F6BE2C`
+
+### Apoio em crise
+
+Faixa em `noite` com texto branco (15:1). Sóbria, sem vermelho de alarme.
 
 ---
 
-## 5. Especificação Detalhada das Telas (Conforme Referências e Fichamento)
+## 3. Tipografia
 
-### Tela 1: Boas-Vindas (Onboarding)
-*Baseada em: `02-ref-boas-vindas.jpeg`, `01-painel-geral-briefing.jpeg` e `mascote.jpeg`*
-- **Topo / Ilustração:** Ondas suaves entrelaçadas em degradê suave das três cores dos pilares (terracota, âmbar, lavanda).
-- **Mascote:** O smartphone amigável com cérebro acolhedor (`mascote.jpeg`) posicionado com um gesto afetuoso de boas-vindas.
-- **Identidade:** Wordmark elegante *"Laços: Conectando histórias e fortalecendo famílias."*
-- **Texto Principal:**  
-  *"Aqui você não está só."*  
-  *"Uma rede de apoio, escuta e cuidado pensada especialmente para famílias atípicas e cuidadores."*
-- **Ações:**
-  - Botão Primário (Verde-Sálvia): `Começar minha jornada` (leva ao cadastro).
-  - Botão Secundário: `Já faço parte da rede` (login rápido).
+Fontes empacotadas no projeto (`@fontsource-variable/*`): funcionam sem internet.
 
-### Tela 2: Identificação & Cadastro Acolhedor
-*Baseada em: `03-ref-login-cadastro.jpeg` e Fichamento da FASA*
-- **Princípio:** Fricção quase zero, respeito à privacidade.
-- **Campos:**
-  1. *Como gostaria de ser chamado(a)?* (Nome ou apelido social).
-  2. *Seu e-mail* (para login e envio de orientações).
-  3. *Foto de perfil (opcional):* Permite upload ou seleção de 4 avatares ilustrados inclusivos e suaves.
-  4. *Gênero:* Opções: `Mulher`, `Homem`, `Não-binário`, `Prefiro descrever` e `Prefiro não informar`.
-  5. *Papel de cuidado (opcional):* Seleção múltipla rápida (`Mãe atípica`, `Pai atípico`, `Irmão/Irmã`, `Cônjuge`, `Outro familiar cuidador`).
-- **Ação:** Botão destacado `Entrar no Laços`.
+- **Bricolage Grotesque** (títulos). Grotesca com personalidade nas curvas, conversa com o
+  letreiro manuscrito sem ficar infantil. Usada pesada (700–800) e grande, como os títulos das
+  referências 04 e 07.
+- **Lexend** (todo o resto). Desenhada para reduzir esforço de leitura — adequada para quem
+  lê no fim de um dia exaustivo.
 
-### Tela 3: Menu Principal (Hub de Acolhimento)
-*Baseada em: `04-ref-menu-principal.jpeg`*
-- **Header Superior:**
-  - Saudação personalizada: *"Bom dia, [Nome]"*.
-  - Mensagem do dia humanizada: *"Hoje você pode fazer só o que for possível. O possível já é muito."*
-  - Atalho do Perfil (avatar no canto superior direito).
-- **Os 3 Cards Principais dos Pilares:**
-  1. **Comunidade:** Fundo terracota suave, ícone de balões de diálogo conectados, título *"Comunidade"*, legenda *"Espaço seguro para trocar vivências, desabafar e apoiar outros familiares."*
-  2. **Conteúdos (Mural):** Fundo âmbar suave, ícone de página com ilustração, título *"Conteúdos"*, legenda *"Artigos educativos e orientações sobre sobrecarga, direitos e rotina."*
-  3. **Psicoterapia Breve:** Fundo lavanda suave, ícone de psicólogos com elo de apoio, título *"Psicoterapia Breve"*, legenda *"Agendamento individualizado com psicólogos credenciados (CRP)."*
-- **Faixa de Suporte e Acolhimento Imediato:** Banner discreto: *"Momento difícil agora? Converse com o CVV (188) — Ligação gratuita 24h"*.
+| Nível | Tamanho / entrelinha | Peso | Uso |
+|---|---|---|---|
+| `titulo-xl` | 34 / 38 | Bricolage 800 | Boas-vindas, saudação do Início |
+| `titulo-lg` | 26 / 30 | Bricolage 750 | Título de cada tela de pilar |
+| `titulo-md` | 19 / 24 | Bricolage 700 | Título de conteúdo, nome do psicólogo |
+| `corpo` | 16 / 24 | Lexend 400 | Relatos, artigos |
+| `corpo-sm` | 14 / 20 | Lexend 400 | Formulários, descrições |
+| `legenda` | 12,5 / 16 | Lexend 500 | Datas, CRP, rótulos de chips |
 
-### Tela 4: Comunidade (Feed Microblog / Threads)
-*Baseada em: `05-ref-comunidade-twitter.jpeg`*
-- **Barra de Abas:** `Todos os Relatos` | `Maternidade Atípica` | `Direitos & Laudos` | `Desabafos`.
-- **Card de Postagem:**
-  - Avatar do autor com identificação: `Ana Paula • Mãe do Theo (TEA Nível 2)`.
-  - Tempo decorrido (`Há 45 min`).
-  - Texto do relato sincero e realista.
-  - Aviso de Conteúdo Sensível (CW) se o relato tocar em cansaço extremo ou crise.
-  - **Barra de Interações:**
-    - Botão `🤗 Abraço (24)`
-    - Botão `💙 Compreendo (18)`
-    - Botão `💬 Comentários`
-    - Botão discreto para a aba de `Sugestões / Denúncia`.
-- **Botão Flutuante (FAB):** Ícone com fundo terracota para criar novo relato (com checklist de proteção a menores).
-
-### Tela 5: Conteúdos / Mural Educativo
-*Baseada em: `07-ref-conteudos-agendamento.jpeg` e Fichamento FASA*
-- **Carrossel de Tópicos:** Filtros: `Crises Sensoriais`, `Escola Inclusiva`, `BPC e Direitos`, `Sobrecarga Materna`.
-- **Card Principal em Destaque:**
-  - Imagem de capa acolhedora (sem fotos desumanizantes).
-  - Badge de tempo: `⏱️ 3 min de leitura • Com áudio disponível`.
-  - Título: *"Como acolher a desregulação sensorial sem negligenciar a sua própria exaustão"*.
-  - Parágrafo introdutório claro.
-  - Disclaimer formal visível: *"Conteúdo educativo produzido por psicólogas(os). Não substitui psicoterapia."*
-  - Botão `Ler artigo completo` ou `Ouvir áudio 🎧`.
-
-### Tela 6: Psicoterapia Breve & Agendamento Demonstrativo
-*Baseada em: `07-ref-conteudos-agendamento.jpeg`, `01-painel-geral-briefing.jpeg` e Fichamento FASA*
-- **Aviso Ético Obrigatório:**
-  *"As sessões de psicoterapia breve são focadas no acolhimento pontual e na demanda emocional do familiar/cuidador. Este serviço não atende a pessoa cuidada, não substitui tratamento de longo prazo nem pronto-socorro."*
-- **Vitrine de Psicólogos Credenciados:**
-  - Card de profissional: Foto profissional humanizada, Nome completo, **CRP 06/142850 (Ativo)**.
-  - Qualificação: *Pós-graduada em Psicologia Social e Comunitária • Especialista em Parentalidade Atípica*.
-  - Indicação clara de **Valor Social (R$ 80,00 a R$ 180,00 por sessão)** acordado na 1ª sessão.
-  - Próximos horários disponíveis em chips clicáveis (`Hoje, 16h00`, `Amanhã, 10h30`, `Quinta, 19h00`).
-  - Botão de ação: `Agendar Sessão Demonstrativa`.
-- **Modal de Confirmação:** Resumo das informações, lembrete ético e botão de adicionar à agenda.
-
-### Tela 7: Perfil do Cuidador
-*Baseada em: `06-ref-perfil.jpeg`*
-- **Cabeçalho:** Banner em verde-sálvia suave com avatar sobreposto e botão de edição rápida.
-- **Identificação:** Nome, e-mail e badges de identificação atípica.
-- **Seção de Configurações Acessíveis:**
-  - Alternador do **Modo Calmo (Sensory Safe)**.
-  - Ajuste de tamanho da fonte (`Normal`, `Grande`, `Muito Grande`).
-  - Meus Relatos, Artigos Salvos e Sessões Agendadas.
-  - Canal de Privacidade e Proteção de Dados (LGPD).
-  - Botão de Saída Rápida de Segurança e Botão de Reset da Demonstração.
+Nada abaixo de 12,5 px. Sem rótulos em CAIXA ALTA espaçada.
 
 ---
 
-## 6. Moldura do Dispositivo & Arquitetura Técnica do Shell
+## 4. Forma, espaço e movimento
 
-1. **Moldura Mobile Dinâmica:** Simulador de smartphone moderno (proporções 390x844) com Dynamic Island/Notch, barra de status (hora atual, bateria, Wi-Fi) e indicador da Home.
-2. **`ScreenPortal` Integrado:** Portais de modais, drawers e toasts montados dentro do elemento da tela do celular (`transform: translateZ(0)`), impedindo que o modal escape da moldura no desktop.
-3. **Alternador Responsivo Automático:**
-   - Em telas maiores (desktop/notebook): exibe a moldura de celular com controles de teste ao lado.
-   - Em telas de celulares reais (< 500px): remove a moldura exterior automaticamente e ocupa 100% da tela nativa do aparelho com as *safe-areas* reais.
-4. **Navegação Fixa Inferior (Bottom Navigation Bar):**
-   - 4 destinos com ícones e rótulos sempre visíveis:
-     1. 🏠 *Início*
-     2. 💬 *Comunidade*
-     3. 📖 *Conteúdos*
-     4. 🌿 *Terapia*
+- Cantos: **28 px** nos cartões dos pilares (blocos grandes, ref. 04), **20 px** nas capas de
+  conteúdo (ref. 07), **14 px** em campos e cartões de lista, **pílula** em botões e chips.
+  Relatos da comunidade **não** são cartões: são linhas separadas por divisores (ref. 05).
+- Margem lateral das telas: 20 px. Alvos de toque com no mínimo 44 px.
+- Sombras só em elementos que flutuam (folhas, botão de novo relato, cartão do cadastro).
+- Movimento só em resposta a uma ação: folha que sobe (220 ms), troca de tela (180 ms).
+  `prefers-reduced-motion` desliga tudo.
+- Foco do teclado sempre visível (anel azul de 2 px).
+
+---
+
+## 5. Telas
+
+Navegação inferior com 5 abas, rótulo sempre visível: **Início, Comunidade, Conteúdos,
+Terapia, Perfil**. A aba ativa ganha a cor do seu pilar.
+
+### 1. Boas-vindas — ref. 02 + painel do grupo
+- Fundo `azul` cheio, laços coloridos dando voltas atrás do conteúdo.
+- Letreiro branco no topo, mascote ao centro.
+- Título: "Conectando histórias, fortalecendo famílias."
+- Texto: o que o app é, para quem é, e os três pilares em uma frase.
+- Botões: **Criar meu cadastro** (branco) e **Já tenho cadastro** (texto).
+
+### 2. Cadastro — ref. 03
+- Topo azul com curva, cartão branco sobreposto, campos com sublinhado (como na ref. 03).
+- Campos (fichamento, item 13: "Login: Nome e Email; mais informações não serão necessárias"):
+  - Como quer ser chamado(a) — obrigatório
+  - E-mail — obrigatório, validado
+  - Foto de perfil — opcional; enviar uma foto do aparelho ou ficar com a inicial
+  - Gênero — Mulher, Homem, Não binário, Prefiro não informar
+- Mensagens de erro dizem o que corrigir.
+- Botão **Entrar no Laços**.
+
+### 3. Início (menu principal) — ref. 04
+- Topo: letreiro à esquerda, foto/inicial à direita (abre o Perfil).
+- Saudação grande: "Olá, {nome}." + mensagem do dia, sincera e sem cobrança.
+- Pilares em blocos coloridos com textura de linhas e ilustração vazando pelo canto:
+  Comunidade (lilás) e Conteúdos (laranja) lado a lado; **Agende uma sessão de psicoterapia
+  breve** (azul) em largura total — nome usado no fichamento.
+- Faixa de apoio em crise (CVV 188, SAMU 192).
+- Atalho para **Sugestões e denúncias** (fichamento, item 14).
+
+### 4. Comunidade — ref. 05
+- Faixa com as regras de convivência (fichamento, item 15), que abre o texto completo.
+- Relatos em lista: inicial colorida (a comunidade usa apelidos, sem fotos de rosto), nome,
+  papel de cuidado ("Mãe de criança com TEA e TDAH"), tempo, texto.
+- Ações: **Responder**, **Apoiar** (coração), **Compartilhar**, e "⋯" com **Denunciar**.
+- Tocar no relato abre a conversa (ref. 05, direita) com respostas e campo para responder.
+- Botão flutuante lilás **Novo relato**: folha com texto (até 500 caracteres) e confirmação
+  obrigatória de que não expõe crianças ou terceiros (ECA; fichamento, item 15).
+
+### 5. Conteúdos — ref. 07
+- Título grande + filtros em chips (Todos, Autocuidado, Emoções, Neurodivergência, Família,
+  Psicoterapia).
+- Capas grandes com foto, tempo de leitura e título sobre a imagem, botão de seta (ref. 07, centro).
+- Leitura (ref. 07, direita): capa, voltar, salvar, título, autoria com **CRP**, texto,
+  **Ouvir** (voz do aparelho em português), referências e o **aviso ético integral** do
+  fichamento (item 16) ao fim de todo conteúdo.
+
+### 6. Psicoterapia breve — ref. 07 (detalhe) + fichamento item 13
+- O que é a psicoterapia breve, em três frases.
+- "Quando não é indicada" (expansível): atendimento é para o cuidador, não para a pessoa cuidada;
+  orientação sem demanda própria; emergência.
+- Valor social **R$ 80 a R$ 180** por sessão; número de sessões e objetivos definidos no
+  contrato terapêutico da 1ª sessão (Resolução CFP nº 13/2022).
+- Lista de psicólogos: foto, nome completo, CRP, formação. Sem estrelas, notas ou "mais procurado"
+  (Nota Técnica CFP nº 01/2022: sem autopromoção).
+- Tela do psicólogo: minicurrículo, horários por dia em chips (exemplo do fichamento: seg 14h,
+  15h30, 17h; qua 9h, 19h; sex 11h). Barra inferior fixa: "R$ 80–180 / sessão" + **Solicitar sessão**.
+- Confirmação: resumo + aceite (sigilo, contrato na 1ª sessão, não é serviço de emergência).
+  Resultado: **Solicitação enviada** — quem confirma é o psicólogo.
+
+### 7. Perfil — ref. 06
+- Topo azul com voltar, "Perfil" e editar; cartão branco sobreposto com foto, nome, gênero.
+- Cartão com e-mail e "no Laços desde".
+- Linhas em pílula com seta (ref. 06): Minhas sessões, Conteúdos salvos, Meus relatos,
+  Sugestões e denúncias, Privacidade e dados.
+- **Sair**.
+
+---
+
+## 6. Palco de apresentação (fora do app)
+
+- **Desktop:** fundo `noite`, celular de 390 × 844 com ilha dinâmica e barra de status,
+  escalado para caber na altura da tela. Ao lado, a jornada do usuário (pular para qualquer
+  tela) e **Reiniciar demonstração**.
+- **Celular real (< 600 px):** sem moldura, o app ocupa a tela inteira.
+- **Lado a lado:** as 7 telas em sequência, para prints e slides.
+- Cada tela tem link próprio (`#/inicio`, `#/comunidade`, `#/psicoterapia`...).
+- Os dados ficam no navegador (localStorage); nada sai do aparelho.
