@@ -136,7 +136,7 @@ desliga todas as animações e a vibração. Tudo fica em `src/estilos/app.css`.
 
 | Animação | Duração | Para quê |
 |---|---|---|
-| Abertura: as 3 fitas do laço se desenham em sequência, o mascote sobe | 1,1 s, uma vez por carregamento | Apresentar a marca sem atrasar quem já conhece |
+| Abertura: as 3 fitas do laço se desenham em sequência, o mascote sobe | ~2,3 s no total (fitas 1,8 s cada, mascote 0,9 s), uma vez por carregamento | Apresentar a marca sem atrasar quem já conhece |
 | Entrar numa tela: vem da direita / voltar: vem da esquerda / trocar de aba: só aparece | 220 ms / 160 ms | Mostrar se a pessoa avançou, voltou ou mudou de área |
 | Folha sobe ao abrir e desce ao fechar | 220 ms / 200 ms | Mostrar de onde veio e para onde foi |
 | Botões e cards encolhem levemente ao toque (`.tocavel`) | 140 ms | Confirmar o toque |
