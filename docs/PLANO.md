@@ -44,23 +44,23 @@ Marque `[x]` assim que cada item estiver pronto **e testado**.
 - [x] Dados fictícios: relatos, conteúdos (com aviso ético), psicólogos (CRP, minicurrículo, horários)
 
 ### 4. Telas (TDD com Testing Library)
-- [ ] Navegação (pilha + abas) independente por instância de celular
-- [ ] 1 Boas-vindas (ref. 02)
-- [ ] 2 Cadastro (ref. 03)
-- [ ] 3 Menu principal (ref. 04)
-- [ ] 4 Comunidade + publicação + novo relato com checklist de proteção (ref. 05)
-- [ ] 5 Conteúdos + leitura com áudio (ref. 07)
-- [ ] 6 Psicoterapia breve + psicólogo + solicitação com consentimento (ref. 07)
-- [ ] 7 Perfil + sessões + salvos + sugestões/denúncias + privacidade (ref. 06)
-- [ ] Apoio em crise (CVV 188 / SAMU 192) acessível no Início e na Terapia
+- [x] Navegação (pilha + abas) independente por instância de celular
+- [x] 1 Boas-vindas (ref. 02)
+- [x] 2 Cadastro (ref. 03)
+- [x] 3 Menu principal (ref. 04)
+- [x] 4 Comunidade + publicação + novo relato com checklist de proteção (ref. 05)
+- [x] 5 Conteúdos + leitura com áudio (ref. 07)
+- [x] 6 Psicoterapia breve + psicólogo + solicitação com consentimento (ref. 07)
+- [x] 7 Perfil + sessões + salvos + sugestões/denúncias + privacidade (ref. 06)
+- [x] Apoio em crise (CVV 188 / SAMU 192) acessível no Início e na Terapia
 
 ### 5. Palco de apresentação
-- [ ] Moldura de celular no desktop, tela cheia em celular real
-- [ ] Painel com a jornada (pular para qualquer tela), reiniciar demonstração
-- [ ] Modo "todas as telas lado a lado" para prints/slides
-- [ ] Link direto por tela (`#/comunidade` etc.)
+- [x] Moldura de celular no desktop, tela cheia em celular real
+- [x] Painel com a jornada (pular para qualquer tela), reiniciar demonstração
+- [x] Modo "todas as telas lado a lado" para prints/slides
+- [x] Link direto por tela (`#/comunidade` etc.)
 
 ### 6. Verificação final
-- [ ] `bun run test` verde, `bun run build` sem erros
-- [ ] Prints de todas as telas revisados (desktop e 390 px)
-- [ ] Funciona sem internet (build servido localmente)
+- [x] `bun run test` verde, `bun run build` sem erros
+- [x] Prints de todas as telas revisados (desktop e 390 px)
+- [x] Funciona sem internet (build servido localmente)
