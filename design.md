@@ -22,7 +22,7 @@ Os originais em JPEG estão em `referencias/`. As versões PNG têm o fundo bran
 
 **A ideia que amarra tudo: o laço.** A fita colorida do logo (azul → ciano → lilás → laranja →
 amarelo) aparece como traço contínuo que dá voltas — grande na tela de boas-vindas (como na
-referência 02), discreta atrás da saudação do Início e nas texturas dos cartões dos pilares.
+referência 02), e como um fio discreto atrás da saudação do Início.
 É o único elemento "decorativo" do app. Todo o resto é quieto.
 
 O que evitamos, e por quê:
@@ -131,7 +131,7 @@ Terapia, Perfil**. A aba ativa ganha a cor do seu pilar.
 ### 3. Início (menu principal) — ref. 04
 - Topo: letreiro à esquerda, foto/inicial à direita (abre o Perfil).
 - Saudação grande: "Olá, {nome}." + mensagem do dia, sincera e sem cobrança.
-- Pilares em blocos coloridos com textura de linhas e ilustração vazando pelo canto:
+- Pilares em blocos de cor chapada (como os quadros do painel do grupo), ícone branco no alto e texto embaixo:
   Comunidade (lilás) e Conteúdos (laranja) lado a lado; **Agende uma sessão de psicoterapia
   breve** (azul) em largura total — nome usado no fichamento.
 - Faixa de apoio em crise (CVV 188, SAMU 192).

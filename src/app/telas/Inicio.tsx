@@ -10,18 +10,6 @@ import { Folha } from '../componentes/Folha';
 import { FormMensagem } from '../componentes/FormMensagem';
 import { Laco } from '../componentes/Laco';
 
-/** Linhas de contorno da ref. 04, por baixo de cada bloco. */
-function Textura() {
-  return (
-    <svg aria-hidden viewBox="0 0 200 200" preserveAspectRatio="none" className="absolute inset-0 h-full w-full text-white/25">
-      {Array.from({ length: 7 }, (_, i) => {
-        const y = 20 + i * 26;
-        return <path key={i} d={`M-10 ${y} C 50 ${y - 22}, 110 ${y + 22}, 210 ${y - 6}`} fill="none" stroke="currentColor" strokeWidth="1.2" />;
-      })}
-    </svg>
-  );
-}
-
 /** Ícone do pilar de psicoterapia no painel do grupo: duas pessoas sentadas e dois elos. */
 function IconeSessao({ className = '' }: { className?: string }) {
   return (
@@ -45,21 +33,21 @@ interface Pilar {
   largo?: boolean;
 }
 
+/** Bloco de cor chapada, como os quadros do painel do grupo: ícone no alto, texto embaixo. */
 function BlocoPilar({ titulo, descricao, rota, cores, icone, largo }: Pilar) {
   const { recomecar } = useNavegacao();
   return (
     <button
       type="button"
       onClick={() => recomecar(rota)}
-      className={`relative isolate flex overflow-hidden rounded-[28px] p-5 text-left ${cores} ${
-        largo ? 'col-span-2 min-h-[150px] items-end pr-32' : 'min-h-[200px] flex-col justify-start'
+      className={`flex rounded-[28px] p-5 text-left transition-transform active:scale-[0.98] ${cores} ${
+        largo ? 'col-span-2 items-center gap-4' : 'min-h-[196px] flex-col justify-between'
       }`}
     >
-      <Textura />
-      <span className={`pointer-events-none absolute text-white/75 ${largo ? '-top-3 -right-4' : '-right-5 -bottom-5'}`}>{icone}</span>
-      <span className="relative block">
+      <span className={largo ? 'order-2 shrink-0' : ''}>{icone}</span>
+      <span className={`block ${largo ? 'flex-1' : 'mt-4'}`}>
         <span className="t-md block">{titulo}</span>
-        <span className="t-sm mt-1 block opacity-90">{descricao}</span>
+        <span className="t-sm mt-1 block opacity-85">{descricao}</span>
       </span>
     </button>
   );
@@ -93,14 +81,14 @@ export function Inicio() {
           descricao="Troque vivências com outras famílias."
           rota={{ tela: 'comunidade' }}
           cores="bg-lilas text-tinta"
-          icone={<MessagesSquare size={92} strokeWidth={1.4} />}
+          icone={<MessagesSquare size={56} strokeWidth={1.6} className="text-white" />}
         />
         <BlocoPilar
           titulo="Conteúdos"
           descricao="Textos de psicólogos sobre o cuidado."
           rota={{ tela: 'conteudos' }}
           cores="bg-laranja text-tinta"
-          icone={<Newspaper size={92} strokeWidth={1.4} />}
+          icone={<Newspaper size={56} strokeWidth={1.6} className="text-white" />}
         />
         <BlocoPilar
           largo
@@ -108,7 +96,7 @@ export function Inicio() {
           descricao="Escuta profissional para você, que cuida."
           rota={{ tela: 'psicoterapia' }}
           cores="sobre-azul bg-azul text-white"
-          icone={<IconeSessao className="mt-6 mr-4 h-32 w-36" />}
+          icone={<IconeSessao className="h-24 w-28 text-white" />}
         />
       </section>
 
