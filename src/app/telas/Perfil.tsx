@@ -23,7 +23,7 @@ function Vazio({ texto, acao, aoAgir }: { texto: string; acao: string; aoAgir: (
   return (
     <div className="py-6 text-center">
       <p className="t-corpo text-tinta-suave">{texto}</p>
-      <button type="button" onClick={aoAgir} className="mt-4 h-12 rounded-full bg-tinta px-6 font-semibold text-white">
+      <button type="button" onClick={aoAgir} className="tocavel mt-4 h-12 rounded-full bg-tinta px-6 font-semibold text-white">
         {acao}
       </button>
     </div>
@@ -202,7 +202,7 @@ export function Perfil({ abrir }: { abrir?: 'sessoes' }) {
             sair();
             recomecar({ tela: 'boas-vindas' });
           }}
-          className="h-12 w-full rounded-full font-semibold text-erro"
+          className="tocavel h-12 w-full rounded-full font-semibold text-erro"
         >
           Sair
         </button>

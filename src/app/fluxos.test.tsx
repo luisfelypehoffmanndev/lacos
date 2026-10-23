@@ -1,10 +1,13 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { LacosApp } from './LacosApp';
 import { useLoja } from '../estado/loja';
 import { AVISO_ETICO } from '../dados/conteudos';
 import type { Rota } from './navegacao';
+import { vibrar } from './vibrar';
+
+vi.mock('./vibrar', async (original) => ({ ...(await original<typeof import('./vibrar')>()), vibrar: vi.fn() }));
 
 const cadastrar = () =>
   useLoja.getState().cadastrar({ nome: 'Marina', email: 'marina@exemplo.com', genero: 'Mulher', foto: null });
@@ -193,5 +196,46 @@ describe('Perfil', () => {
     await user.click(screen.getByRole('button', { name: 'Sair' }));
     expect(titulo(/conectando histórias/i)).toBeInTheDocument();
     expect(useLoja.getState().usuario.cadastrado).toBe(false);
+  });
+});
+
+describe('movimento', () => {
+  beforeEach(() => {
+    cadastrar();
+    vi.mocked(vibrar).mockClear();
+  });
+
+  const direcao = () => document.querySelector('[data-direcao]')?.getAttribute('data-direcao');
+
+  it('a transição sabe se está entrando, voltando ou trocando de aba', async () => {
+    const user = abrir({ tela: 'comunidade' });
+    expect(direcao()).toBe('nenhuma');
+
+    await user.click(screen.getByText(useLoja.getState().relatos[0].texto));
+    expect(direcao()).toBe('frente');
+
+    await user.click(screen.getByRole('button', { name: 'Voltar' }));
+    expect(direcao()).toBe('tras');
+
+    await user.click(screen.getByRole('link', { name: 'Início' }));
+    expect(direcao()).toBe('aba');
+  });
+
+  it('apoiar dá uma vibração curta', async () => {
+    const user = abrir({ tela: 'comunidade' });
+    await user.click(screen.getAllByRole('button', { name: /^Apoiar/ })[0]);
+    expect(vibrar).toHaveBeenCalledTimes(1);
+  });
+
+  it('o relato recém-publicado chega destacado', async () => {
+    const user = abrir({ tela: 'comunidade' });
+    await user.click(screen.getByRole('button', { name: 'Novo relato' }));
+    const folha = screen.getByRole('dialog', { name: 'Novo relato' });
+    await user.type(within(folha).getByLabelText('Seu relato'), 'Oi, gente.');
+    await user.click(within(folha).getByRole('checkbox'));
+    await user.click(within(folha).getByRole('button', { name: 'Publicar relato' }));
+
+    expect(screen.getByText('Oi, gente.').closest('li')).toHaveAttribute('data-recente');
+    expect(vibrar).toHaveBeenCalled();
   });
 });

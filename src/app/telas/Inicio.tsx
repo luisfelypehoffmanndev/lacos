@@ -70,7 +70,7 @@ function BlocoPilar({ titulo, descricao, rota, cores, icone, forma, largo }: Pil
     <button
       type="button"
       onClick={() => recomecar(rota)}
-      className={`relative isolate flex overflow-hidden rounded-[28px] p-5 text-left transition-transform active:scale-[0.98] ${cores} ${
+      className={`tocavel relative isolate flex overflow-hidden rounded-[28px] p-5 text-left ${cores} ${
         largo ? 'col-span-2 min-h-[170px] flex-col justify-between pr-36' : 'min-h-[200px] flex-col justify-between'
       }`}
     >

@@ -1,7 +1,7 @@
 import { useId, useState } from 'react';
-import { CheckCircle2 } from 'lucide-react';
 import { useLoja } from '../../estado/loja';
 import type { Mensagem } from '../../estado/tipos';
+import { CheckDesenhado } from './CheckDesenhado';
 import { Opcoes } from './Opcoes';
 
 /** Canal de sugestões e denúncias (fichamento, item 14: aba "sugestões"). */
@@ -15,7 +15,7 @@ export function FormMensagem() {
   if (enviada) {
     return (
       <div className="py-4 text-center">
-        <CheckCircle2 size={40} className="mx-auto text-lilas-forte" aria-hidden />
+        <CheckDesenhado className="mx-auto size-10 text-lilas-forte" />
         <p className="t-md mt-3">Mensagem enviada.</p>
         <p className="t-sm mt-1 text-tinta-suave">
           A moderação lê todas as mensagens. Denúncias são analisadas primeiro.
@@ -60,7 +60,7 @@ export function FormMensagem() {
           className="t-corpo mt-2 w-full resize-none rounded-[14px] border border-linha bg-fundo p-3 outline-none focus:border-tinta"
         />
       </div>
-      <button type="submit" disabled={!texto.trim()} className="h-12 w-full rounded-full bg-tinta font-semibold text-white disabled:opacity-40">
+      <button type="submit" disabled={!texto.trim()} className="tocavel h-12 w-full rounded-full bg-tinta font-semibold text-white disabled:opacity-40">
         Enviar
       </button>
     </form>

@@ -149,7 +149,7 @@ export function Cadastro({ modo }: { modo?: 'entrar' | 'editar' }) {
           </>
         )}
 
-        <button type="submit" className="h-14 w-full rounded-full bg-tinta text-[17px] font-semibold text-white">
+        <button type="submit" className="tocavel h-14 w-full rounded-full bg-tinta text-[17px] font-semibold text-white">
           {textos.botao}
         </button>
       </form>

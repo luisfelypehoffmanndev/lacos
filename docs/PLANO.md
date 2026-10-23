@@ -70,3 +70,17 @@ Marque `[x]` assim que cada item estiver pronto **e testado**.
 - [ ] Registrar as respostas das entrevistas (fichamento, item 8, está em branco). A versão do Gemini
       tinha inventado essas respostas no PROJETO.md; foram removidas.
 - [ ] Testar no Wi-Fi do local do evento, ou levar o build (`bun run build && bun run preview`).
+
+## Animações (pedido de 23/10/2026)
+
+Pequenas, em resposta ao toque; uma única abertura na boas-vindas. `prefers-reduced-motion` desliga tudo.
+
+- [x] Testes primeiro: vibração, direção da transição, apoiar vibra, relato recente destacado
+- [x] Base de movimento no CSS (curva única, durações, keyframes, `.tocavel`)
+- [x] Transição com direção: entrar da direita, voltar da esquerda, aba com fade
+- [x] Folha desce ao fechar
+- [x] Apoiar e salvar pulsam; relato publicado destacado; ✓ de sucesso se desenha; aviso sobe
+- [x] Pílula da aba ativa aparece suave; cores das pílulas com transição
+- [x] Abertura: laço se desenha e mascote sobe (uma vez por carregamento)
+- [x] Vibração leve (Android) em apoiar, publicar e enviar solicitação
+- [x] design.md atualizado, testes e build verdes, prints conferidos

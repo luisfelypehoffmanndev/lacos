@@ -126,9 +126,25 @@ Nada abaixo de 12,5 px. Sem rótulos em CAIXA ALTA espaçada.
   Relatos da comunidade **não** são cartões: são linhas separadas por divisores (ref. 05).
 - Margem lateral das telas: 20 px. Alvos de toque com no mínimo 44 px.
 - Sombras só em elementos que flutuam (folhas, botão de novo relato, cartão do cadastro).
-- Movimento só em resposta a uma ação: folha que sobe (220 ms), troca de tela (180 ms).
-  `prefers-reduced-motion` desliga tudo.
-- Foco do teclado sempre visível (anel azul de 2 px).
+- Foco do teclado sempre visível (anel de 2 px).
+
+### Movimento
+
+Pequeno e em resposta ao toque, com uma curva só (`cubic-bezier(0.2, 0.8, 0.2, 1)`) e sem quique.
+Há um único momento "de apresentação": a abertura da boas-vindas. `prefers-reduced-motion`
+desliga todas as animações e a vibração. Tudo fica em `src/estilos/app.css`.
+
+| Animação | Duração | Para quê |
+|---|---|---|
+| Abertura: as 3 fitas do laço se desenham em sequência, o mascote sobe | 1,1 s, uma vez por carregamento | Apresentar a marca sem atrasar quem já conhece |
+| Entrar numa tela: vem da direita / voltar: vem da esquerda / trocar de aba: só aparece | 220 ms / 160 ms | Mostrar se a pessoa avançou, voltou ou mudou de área |
+| Folha sobe ao abrir e desce ao fechar | 220 ms / 200 ms | Mostrar de onde veio e para onde foi |
+| Botões e cards encolhem levemente ao toque (`.tocavel`) | 140 ms | Confirmar o toque |
+| Coração (apoiar) e marcador (salvar) pulsam ao marcar | 260 ms | Confirmar a ação |
+| Relato recém-publicado chega com fundo lilás que se apaga | 1,2 s | Mostrar onde o relato entrou |
+| ✓ de "Solicitação enviada" e "Mensagem enviada" se desenha | 420 ms | Fechar o fluxo com clareza |
+| Aviso (toast) sobe 8 px; pílula da aba ativa acende; pílulas mudam de cor suavemente | 140–220 ms | Continuidade |
+| Vibração de 12 ms (só Android) em apoiar, publicar e enviar solicitação | — | Confirmação tátil discreta |
 
 ---
 

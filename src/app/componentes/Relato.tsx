@@ -5,11 +5,12 @@ import type { Relato } from '../../estado/tipos';
 import { MOTIVOS_DE_DENUNCIA } from '../../dados/textos';
 import { useNavegacao } from '../navegacao';
 import { tempoRelativo } from '../formato';
+import { vibrar } from '../vibrar';
 import { Avatar } from './Avatar';
 import { Folha } from './Folha';
 import { Opcoes } from './Opcoes';
 
-const botaoAcao = 'flex h-11 min-w-11 items-center gap-1.5 rounded-full px-2.5 t-sm text-tinta-suave';
+const botaoAcao = 'tocavel flex h-11 min-w-11 items-center gap-1.5 rounded-full px-2.5 t-sm text-tinta-suave';
 
 /** Responder, apoiar, compartilhar e denunciar. */
 export function AcoesRelato({ relato, aoDenunciar }: { relato: Relato; aoDenunciar?: () => void }) {
@@ -29,12 +30,21 @@ export function AcoesRelato({ relato, aoDenunciar }: { relato: Relato; aoDenunci
       )}
       <button
         type="button"
-        onClick={() => apoiar(relato.id)}
+        onClick={() => {
+          if (!relato.apoiado) vibrar();
+          apoiar(relato.id);
+        }}
         aria-pressed={relato.apoiado}
         aria-label={`Apoiar, ${relato.apoios} ${relato.apoios === 1 ? 'apoio' : 'apoios'}`}
         className={`${botaoAcao} ${relato.apoiado ? 'font-semibold text-lilas-forte' : ''}`}
       >
-        <Heart size={18} fill={relato.apoiado ? 'currentColor' : 'none'} aria-hidden />
+        <Heart
+          key={String(relato.apoiado)}
+          size={18}
+          fill={relato.apoiado ? 'currentColor' : 'none'}
+          className={relato.apoiado ? 'anim-pulsar' : undefined}
+          aria-hidden
+        />
         <span aria-hidden>{relato.apoios}</span>
       </button>
       <button
@@ -90,7 +100,7 @@ function FolhaDenuncia({ aberta, relatoId, aoFechar, aoEnviar }: { aberta: boole
           denunciar(relatoId, motivo);
           aoEnviar();
         }}
-        className="mt-5 h-12 w-full rounded-full bg-lilas-forte font-semibold text-white disabled:opacity-40"
+        className="tocavel mt-5 h-12 w-full rounded-full bg-lilas-forte font-semibold text-white disabled:opacity-40"
       >
         Enviar denúncia
       </button>
@@ -125,8 +135,10 @@ export function ItemRelato({ relato }: { relato: Relato }) {
       </li>
     );
   }
+  // Relato que a própria pessoa acabou de publicar chega com um destaque lilás que se apaga.
+  const recente = relato.deUsuario && Date.now() - relato.criadaEm < 3000;
   return (
-    <li className="px-5 pt-4 pb-2">
+    <li data-recente={recente || undefined} className={`px-5 pt-4 pb-2 ${recente ? 'anim-destacar' : ''}`}>
       <CabecaRelato relato={relato} />
       <button
         type="button"

@@ -10,13 +10,13 @@ export function ApoioCrise({ nota }: { nota?: string }) {
         {nota ?? 'Você não precisa esperar uma sessão.'} Ligações gratuitas, 24 horas por dia.
       </p>
       <div className="mt-4 grid grid-cols-2 gap-2">
-        <a href="tel:188" className="flex h-12 items-center justify-center gap-2 rounded-full bg-white font-semibold text-noite">
+        <a href="tel:188" className="tocavel flex h-12 items-center justify-center gap-2 rounded-full bg-white font-semibold text-noite">
           <Phone size={17} aria-hidden />
           <span>
             CVV <span className="sr-only">, ligar para o</span> 188
           </span>
         </a>
-        <a href="tel:192" className="flex h-12 items-center justify-center gap-2 rounded-full bg-white/12 font-semibold ring-1 ring-white/40">
+        <a href="tel:192" className="tocavel flex h-12 items-center justify-center gap-2 rounded-full bg-white/12 font-semibold ring-1 ring-white/40">
           <Phone size={17} aria-hidden />
           <span>
             SAMU <span className="sr-only">, ligar para o</span> 192

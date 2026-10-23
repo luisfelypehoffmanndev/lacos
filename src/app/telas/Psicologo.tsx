@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { CheckCircle2, Video } from 'lucide-react';
+import { Video } from 'lucide-react';
 import { nomeCompleto, psicologoPorId } from '../../dados/psicologos';
 import { useLoja } from '../../estado/loja';
 import type { DiaSemana, Psicologo as TipoPsicologo } from '../../estado/tipos';
 import { useNavegacao } from '../navegacao';
 import { Cabecalho } from '../componentes/Cabecalho';
+import { CheckDesenhado } from '../componentes/CheckDesenhado';
 import { Folha } from '../componentes/Folha';
+import { vibrar } from '../vibrar';
 import { NaoEncontrado } from './NaoEncontrado';
 
 interface Horario {
@@ -31,7 +33,7 @@ function FolhaSolicitacao({ psicologo, horario, aoFechar }: { psicologo: TipoPsi
       {horario &&
         (resultado === 'ok' ? (
           <div className="pt-2 text-center">
-            <CheckCircle2 size={44} className="mx-auto text-azul" aria-hidden />
+            <CheckDesenhado className="mx-auto size-11 text-azul" />
             <h3 className="t-md mt-3">Solicitação enviada</h3>
             <p className="t-sm mt-2 text-tinta-suave">
               {nomeCompleto(psicologo)} vai confirmar o horário{email ? ` pelo e-mail ${email}` : ''}. Tudo o que você conversar na
@@ -44,11 +46,11 @@ function FolhaSolicitacao({ psicologo, horario, aoFechar }: { psicologo: TipoPsi
                   fechar();
                   recomecar({ tela: 'perfil', abrir: 'sessoes' });
                 }}
-                className="h-12 w-full rounded-full bg-azul font-semibold text-white"
+                className="tocavel h-12 w-full rounded-full bg-azul font-semibold text-white"
               >
                 Ver minhas sessões
               </button>
-              <button type="button" onClick={fechar} className="h-12 w-full rounded-full font-semibold text-azul">
+              <button type="button" onClick={fechar} className="tocavel h-12 w-full rounded-full font-semibold text-azul">
                 Fechar
               </button>
             </div>
@@ -83,8 +85,12 @@ function FolhaSolicitacao({ psicologo, horario, aoFechar }: { psicologo: TipoPsi
             <button
               type="button"
               disabled={!aceite}
-              onClick={() => setResultado(solicitarSessao(psicologo.id, horario.dia, horario.hora))}
-              className="h-12 w-full rounded-full bg-azul font-semibold text-white disabled:opacity-40"
+              onClick={() => {
+                const r = solicitarSessao(psicologo.id, horario.dia, horario.hora);
+                if (r === 'ok') vibrar();
+                setResultado(r);
+              }}
+              className="tocavel h-12 w-full rounded-full bg-azul font-semibold text-white disabled:opacity-40"
             >
               Enviar solicitação
             </button>
@@ -132,7 +138,7 @@ export function Psicologo({ id }: { id: string }) {
                           aria-checked={ativo}
                           aria-label={`${dia}, ${hora}`}
                           onClick={() => setEscolha({ dia, hora })}
-                          className={`t-sm h-11 min-w-20 rounded-full border px-4 font-medium ${
+                          className={`tocavel t-sm h-11 min-w-20 rounded-full border px-4 font-medium transition-colors duration-150 ${
                             ativo ? 'border-azul bg-azul text-white' : 'border-linha bg-superficie'
                           }`}
                         >
@@ -157,7 +163,7 @@ export function Psicologo({ id }: { id: string }) {
           type="button"
           disabled={!escolha}
           onClick={() => setConfirmando(true)}
-          className="ml-auto h-12 rounded-full bg-azul px-6 font-semibold text-white disabled:opacity-40"
+          className="tocavel ml-auto h-12 rounded-full bg-azul px-6 font-semibold text-white disabled:opacity-40"
         >
           Solicitar sessão
         </button>

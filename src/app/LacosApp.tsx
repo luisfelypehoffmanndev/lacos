@@ -47,6 +47,8 @@ interface Props {
 /** O aplicativo Laços. Cada instância tem sua própria navegação; os dados são compartilhados. */
 export function LacosApp({ rotaInicial = { tela: 'boas-vindas' }, moldura = false, aoMudarRota }: Props) {
   const [pilha, despachar] = useReducer(reduzirPilha, [rotaInicial]);
+  /** Define a animação da próxima tela: entrar (frente), voltar (tras) ou trocar de aba. */
+  const [direcao, setDirecao] = useState<'nenhuma' | 'frente' | 'tras' | 'aba'>('nenhuma');
   const [camada, setCamada] = useState<HTMLElement | null>(null);
   const [aviso, setAviso] = useState<{ texto: string; n: number } | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -62,9 +64,18 @@ export function LacosApp({ rotaInicial = { tela: 'boas-vindas' }, moldura = fals
     () => ({
       rota,
       podeVoltar: pilha.length > 1,
-      ir: (r) => despachar({ tipo: 'ir', rota: r }),
-      voltar: () => despachar({ tipo: 'voltar' }),
-      recomecar: (r) => despachar({ tipo: 'recomecar', rota: r }),
+      ir: (r) => {
+        setDirecao('frente');
+        despachar({ tipo: 'ir', rota: r });
+      },
+      voltar: () => {
+        setDirecao('tras');
+        despachar({ tipo: 'voltar' });
+      },
+      recomecar: (r) => {
+        setDirecao('aba');
+        despachar({ tipo: 'recomecar', rota: r });
+      },
       avisar: (texto) => {
         clearTimeout(timer.current);
         setAviso((a) => ({ texto, n: (a?.n ?? 0) + 1 }));
@@ -83,14 +94,14 @@ export function LacosApp({ rotaInicial = { tela: 'boas-vindas' }, moldura = fals
         className="lacos-app relative flex h-full w-full flex-col overflow-hidden bg-fundo text-tinta"
         data-moldura={moldura || undefined}
       >
-        <div key={`${rotaParaHash(rota)}:${pilha.length}`} className="anim-entrar relative flex min-h-0 flex-1 flex-col">
+        <div key={`${rotaParaHash(rota)}:${pilha.length}`} data-direcao={direcao} className="relative flex min-h-0 flex-1 flex-col">
           <Tela rota={rota} />
         </div>
         {aba && mostraAbas(rota) && <BarraAbas ativa={aba} />}
         <div ref={setCamada} className="pointer-events-none absolute inset-0 z-40 *:pointer-events-auto" />
         <div aria-live="polite" className="pointer-events-none absolute inset-x-4 bottom-[calc(96px+var(--base-segura))] z-50 flex justify-center">
           {aviso && (
-            <p key={aviso.n} role="status" className="anim-surgir t-sm rounded-[16px] bg-tinta px-4 py-3 text-center text-white shadow-lg">
+            <p key={aviso.n} role="status" className="anim-aviso t-sm rounded-[16px] bg-tinta px-4 py-3 text-center text-white shadow-lg">
               {aviso.texto}
             </p>
           )}

@@ -52,7 +52,7 @@ export function ConteudoTela({ id }: { id: string }) {
   if (!conteudo) return <NaoEncontrado titulo="Conteúdos" texto="Não encontramos este conteúdo." />;
   const autor = psicologoPorId(conteudo.psicologoId);
 
-  const botaoRedondo = 'grid size-11 place-items-center rounded-full border border-linha bg-superficie';
+  const botaoRedondo = 'tocavel grid size-11 place-items-center rounded-full border border-linha bg-superficie';
 
   return (
     <>
@@ -69,7 +69,7 @@ export function ConteudoTela({ id }: { id: string }) {
             aria-label="Salvar conteúdo"
             className={`${botaoRedondo} ${salvo ? 'text-laranja-forte' : ''}`}
           >
-            <Bookmark size={20} fill={salvo ? 'currentColor' : 'none'} />
+            <Bookmark key={String(salvo)} size={20} fill={salvo ? 'currentColor' : 'none'} className={salvo ? 'anim-pulsar' : undefined} />
           </button>
         </header>
 
@@ -114,7 +114,7 @@ export function ConteudoTela({ id }: { id: string }) {
 
       <div className="flex items-center gap-4 border-t border-linha bg-superficie px-5 pt-3 pb-[calc(12px+var(--base-segura))]">
         <p className="t-sm flex-1">Quer conversar sobre isso com um profissional?</p>
-        <button type="button" onClick={() => recomecar({ tela: 'psicoterapia' })} className="h-12 shrink-0 rounded-full bg-azul px-5 font-semibold text-white">
+        <button type="button" onClick={() => recomecar({ tela: 'psicoterapia' })} className="tocavel h-12 shrink-0 rounded-full bg-azul px-5 font-semibold text-white">
           Ver psicoterapia
         </button>
       </div>

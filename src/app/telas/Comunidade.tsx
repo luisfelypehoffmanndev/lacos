@@ -3,6 +3,7 @@ import { PenLine, ShieldCheck } from 'lucide-react';
 import { LIMITE_RELATO, useLoja } from '../../estado/loja';
 import { REGRAS_DE_CONVIVENCIA } from '../../dados/textos';
 import { useNavegacao } from '../navegacao';
+import { vibrar } from '../vibrar';
 import { Avatar } from '../componentes/Avatar';
 import { Folha } from '../componentes/Folha';
 import { ItemRelato } from '../componentes/Relato';
@@ -39,6 +40,7 @@ function FolhaNovoRelato({ aberta, aoFechar }: { aberta: boolean; aoFechar: () =
         onSubmit={(e) => {
           e.preventDefault();
           if (!publicar(texto)) return;
+          vibrar();
           setTexto('');
           setConfirmado(false);
           aoFechar();
@@ -77,7 +79,7 @@ function FolhaNovoRelato({ aberta, aoFechar }: { aberta: boolean; aoFechar: () =
         <button
           type="submit"
           disabled={!texto.trim() || !confirmado}
-          className="h-12 w-full rounded-full bg-lilas-forte font-semibold text-white disabled:opacity-40"
+          className="tocavel h-12 w-full rounded-full bg-lilas-forte font-semibold text-white disabled:opacity-40"
         >
           Publicar relato
         </button>
@@ -127,7 +129,7 @@ export function Comunidade() {
       <button
         type="button"
         onClick={() => setEscrevendo(true)}
-        className="absolute right-4 bottom-4 flex h-14 items-center gap-2 rounded-full bg-lilas-forte pr-5 pl-4 font-semibold text-white shadow-[0_12px_24px_-10px_rgba(122,69,207,0.8)]"
+        className="tocavel absolute right-4 bottom-4 flex h-14 items-center gap-2 rounded-full bg-lilas-forte pr-5 pl-4 font-semibold text-white shadow-[0_12px_24px_-10px_rgba(122,69,207,0.8)]"
       >
         <PenLine size={20} aria-hidden />
         Novo relato

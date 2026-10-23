@@ -42,9 +42,11 @@ export function Laco({ variante, className = '' }: { variante: 'grande' | 'fina'
         <Gradiente id={id} />
       </defs>
       <g strokeLinecap="round">
-        <path d="M-60 150 C 90 -30 330 20 300 190 C 270 340 40 300 80 170 C 110 70 330 60 460 230" stroke="#3D72F2" strokeWidth="30" />
-        <path d="M310 -40 C 450 70 430 270 330 360" stroke="#8ED7EE" strokeWidth="16" opacity="0.55" />
+        <path className="fita" pathLength={1} d="M-60 150 C 90 -30 330 20 300 190 C 270 340 40 300 80 170 C 110 70 330 60 460 230" stroke="#3D72F2" strokeWidth="30" />
+        <path className="fita" pathLength={1} d="M310 -40 C 450 70 430 270 330 360" stroke="#8ED7EE" strokeWidth="16" opacity="0.55" />
         <path
+          className="fita"
+          pathLength={1}
           d="M-50 700 C 60 560 260 590 250 700 C 240 810 70 790 110 690 C 150 590 340 590 450 740"
           stroke={`url(#${id})`}
           strokeWidth="24"

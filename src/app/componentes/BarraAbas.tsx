@@ -29,7 +29,7 @@ export function BarraAbas({ ativa }: { ativa: Aba }) {
                 }}
                 className={`flex flex-col items-center gap-0.5 rounded-2xl py-1.5 ${atual ? 'text-tinta' : 'text-tinta-suave'}`}
               >
-                <span className={`grid h-8 w-12 place-items-center rounded-full ${atual ? cores : ''}`}>
+                <span key={String(atual)} className={`grid h-8 w-12 place-items-center rounded-full ${atual ? `anim-acender ${cores}` : ''}`}>
                   <Icone size={21} strokeWidth={atual ? 2.3 : 1.8} />
                 </span>
                 <span className={`text-[11.5px] leading-4 ${atual ? 'font-semibold' : ''}`}>{rotulo}</span>
