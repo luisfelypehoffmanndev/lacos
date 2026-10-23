@@ -153,6 +153,37 @@ describe('Conteúdos', () => {
   });
 });
 
+describe('Conteúdos em formatos variados', () => {
+  beforeEach(cadastrar);
+
+  it('abre com um destaque e mistura reflexões e cartões', () => {
+    abrir({ tela: 'conteudos' });
+    const destaque = screen.getByRole('region', { name: 'Em destaque' });
+    expect(within(destaque).getByText('O cansaço de quem cuida não é fraqueza')).toBeInTheDocument();
+    expect(screen.getByText('Cuidar de alguém não significa deixar de existir.')).toBeInTheDocument();
+    const cartoes = screen.getByRole('region', { name: 'Psicoterapia breve em 4 cartões' });
+    expect(within(cartoes).getByText('Para quem é')).toBeInTheDocument();
+    expect(within(cartoes).getByText(AVISO_ETICO)).toBeInTheDocument();
+  });
+
+  it('o que já foi lido ganha o selo e sai do destaque', async () => {
+    const user = abrir({ tela: 'conteudos' });
+    await user.click(within(screen.getByRole('region', { name: 'Em destaque' })).getByRole('button'));
+    await user.click(screen.getByRole('button', { name: 'Voltar' }));
+
+    expect(within(screen.getByRole('region', { name: 'Em destaque' })).queryByText('O cansaço de quem cuida não é fraqueza')).toBeNull();
+    const linha = screen.getByRole('button', { name: /O cansaço de quem cuida não é fraqueza/ });
+    expect(within(linha).getByText('Lido')).toBeInTheDocument();
+  });
+
+  it('uma reflexão abre com a frase como título e o aviso ético', async () => {
+    const user = abrir({ tela: 'conteudos' });
+    await user.click(screen.getByRole('button', { name: /Cuidar de alguém não significa deixar de existir/ }));
+    expect(titulo('Cuidar de alguém não significa deixar de existir.')).toBeInTheDocument();
+    expect(screen.getByText(AVISO_ETICO)).toBeInTheDocument();
+  });
+});
+
 describe('Psicoterapia breve', () => {
   beforeEach(cadastrar);
 

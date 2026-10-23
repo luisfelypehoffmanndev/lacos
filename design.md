@@ -192,9 +192,17 @@ A aba ativa ganha a cor da sua área.
 ### 5. Conteúdos — ref. 07
 - Título grande + filtros em chips (Todos, Autocuidado, Emoções, Neurodivergência, Família,
   Psicoterapia).
-- Capas grandes com foto, tempo de leitura e título sobre a imagem, botão de seta (ref. 07, centro).
-- Leitura (ref. 07, direita): capa, voltar, salvar, título, autoria com **CRP**, texto,
-  **Ouvir** (voz do aparelho em português), referências e o **aviso ético integral** do
+- **Destaque:** capa grande com foto (ref. 07, centro) do texto mais recente que a pessoa ainda
+  não leu. Depois de lido, ele desce para a lista e o próximo sobe.
+- **Formatos misturados** (fichamento, item 10: "informativos, imagens, textos, orientações,
+  reflexões"), intercalados para a lista não ficar repetitiva:
+  - *Texto:* linha compacta, foto pequena à esquerda, tema, título e tempo de leitura.
+  - *Reflexão:* frase grande sobre o laranja, como um post; abre com a frase como título.
+  - *Cartões:* informativo que desliza para o lado ("1 de 4"), alternando pêssego e amarelo claro;
+    o último cartão é o aviso ético.
+- **✓ Lido** nos conteúdos já abertos.
+- Leitura (ref. 07, direita): capa (ou a frase, nas reflexões), voltar, salvar, autoria com **CRP**,
+  texto, **Ouvir** (voz do aparelho em português), referências e o **aviso ético integral** do
   fichamento (item 16) ao fim de todo conteúdo.
 
 ### 6. Psicoterapia breve — ref. 07 (detalhe) + fichamento item 13

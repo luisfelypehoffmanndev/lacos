@@ -107,7 +107,7 @@ Cada pilar tem nome, cor e ícone próprios (fichamento, item 11). Cores e telas
 ### Conteúdos — laranja
 - **Fichamento:** publicações educativas sobre saúde mental, neurodivergência e relações familiares,
   feitas por psicólogos com CRP ativo; curtir, compartilhar e salvar.
-- **No protótipo:** 6 conteúdos com capa, filtro por tema, autoria com CRP, leitura em voz alta,
+- **No protótipo:** 10 conteúdos em três formatos (6 textos com capa, 2 reflexões e 2 informativos em cartões), destaque do que ainda não foi lido, selo de lido, filtro por tema, autoria com CRP, leitura em voz alta,
   referências, **salvar** e o aviso ético integral ao fim de cada texto:
   > *Este conteúdo tem finalidade informativa e educativa. Ele não substitui uma avaliação ou um
   > acompanhamento psicológico individualizado. Cada pessoa possui necessidades e experiências próprias.

@@ -47,20 +47,40 @@ export type Categoria = 'Autocuidado' | 'Emoções' | 'Neurodivergência' | 'Fam
 
 export const CATEGORIAS: Categoria[] = ['Autocuidado', 'Emoções', 'Neurodivergência', 'Família', 'Psicoterapia'];
 
-export interface Conteudo {
+interface ConteudoBase {
   id: string;
   titulo: string;
-  resumo: string;
   categoria: Categoria;
-  capa: string;
-  capaAlt: string;
-  minutos: number;
   psicologoId: string;
   /** Data de publicação, AAAA-MM-DD. */
   publicadoEm: string;
-  paragrafos: string[];
   referencias: string[];
 }
+
+/** Texto com capa (formato principal). */
+export interface ConteudoTexto extends ConteudoBase {
+  formato: 'texto';
+  resumo: string;
+  capa: string;
+  capaAlt: string;
+  minutos: number;
+  paragrafos: string[];
+}
+
+/** Frase curta em destaque, com um parágrafo de contexto. */
+export interface ConteudoReflexao extends ConteudoBase {
+  formato: 'reflexao';
+  frase: string;
+  paragrafos: string[];
+}
+
+/** Informativo em cartões que se desliza para o lado (o formato "imagem" do fichamento). */
+export interface ConteudoCartoes extends ConteudoBase {
+  formato: 'cartoes';
+  cartoes: { titulo: string; texto: string }[];
+}
+
+export type Conteudo = ConteudoTexto | ConteudoReflexao | ConteudoCartoes;
 
 export type DiaSemana = 'Segunda-feira' | 'Terça-feira' | 'Quarta-feira' | 'Quinta-feira' | 'Sexta-feira';
 

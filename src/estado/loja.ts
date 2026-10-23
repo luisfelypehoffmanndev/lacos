@@ -34,6 +34,7 @@ interface Dados {
   usuario: Usuario;
   relatos: Relato[];
   salvos: string[];
+  lidos: string[];
   solicitacoes: Solicitacao[];
   mensagens: Mensagem[];
 }
@@ -47,6 +48,7 @@ interface Acoes {
   compartilhar: (relatoId: string) => void;
   denunciar: (relatoId: string, motivo: string) => void;
   alternarSalvo: (conteudoId: string) => void;
+  marcarLido: (conteudoId: string) => void;
   solicitarSessao: (psicologoId: string, dia: DiaSemana, hora: string) => 'ok' | 'duplicada';
   cancelarSolicitacao: (id: string) => void;
   enviarMensagem: (tipo: Mensagem['tipo'], texto: string, relatoId?: string) => boolean;
@@ -57,6 +59,7 @@ const dadosIniciais = (): Dados => ({
   usuario: USUARIO_VAZIO,
   relatos: relatosIniciais(Date.now()),
   salvos: [],
+  lidos: [],
   solicitacoes: [],
   mensagens: [],
 });
@@ -142,6 +145,8 @@ export const useLoja = create<Dados & Acoes>()(
         alternarSalvo: (id) =>
           set((s) => ({ salvos: s.salvos.includes(id) ? s.salvos.filter((x) => x !== id) : [...s.salvos, id] })),
 
+        marcarLido: (id) => set((s) => (s.lidos.includes(id) ? s : { lidos: [...s.lidos, id] })),
+
         solicitarSessao: (psicologoId, dia, hora) => {
           const repetida = get().solicitacoes.some((x) => x.psicologoId === psicologoId && x.dia === dia && x.hora === hora);
           if (repetida) return 'duplicada';
@@ -165,7 +170,7 @@ export const useLoja = create<Dados & Acoes>()(
     },
     {
       name: 'lacos-demo-v2',
-      partialize: ({ usuario, relatos, salvos, solicitacoes, mensagens }) => ({ usuario, relatos, salvos, solicitacoes, mensagens }),
+      partialize: ({ usuario, relatos, salvos, lidos, solicitacoes, mensagens }) => ({ usuario, relatos, salvos, lidos, solicitacoes, mensagens }),
     },
   ),
 );

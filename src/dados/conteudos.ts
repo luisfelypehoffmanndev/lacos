@@ -1,4 +1,4 @@
-import type { Conteudo } from '../estado/tipos';
+import type { Conteudo, ConteudoTexto } from '../estado/tipos';
 
 /** Texto obrigatório ao fim de todo conteúdo (fichamento, item 16). */
 export const AVISO_ETICO =
@@ -13,10 +13,12 @@ const NOVAIS =
 /**
  * Conteúdos fictícios assinados pelos psicólogos de demonstração.
  * Sem diagnóstico, sem prescrição, sem promessa de resultado (fichamento, item 16).
+ * A ordem é a do feed: formatos diferentes intercalados para a leitura não ficar repetitiva.
  */
 export const CONTEUDOS: Conteudo[] = [
   {
     id: 'cansaco-de-quem-cuida',
+    formato: 'texto',
     titulo: 'O cansaço de quem cuida não é fraqueza',
     resumo: 'Por que a exaustão aparece mesmo quando você "não fez nada de diferente" hoje.',
     categoria: 'Autocuidado',
@@ -34,7 +36,21 @@ export const CONTEUDOS: Conteudo[] = [
     referencias: [MISQUIATTI],
   },
   {
+    id: 'reflexao-existir',
+    formato: 'reflexao',
+    titulo: 'Cuidar de alguém não significa deixar de existir',
+    frase: 'Cuidar de alguém não significa deixar de existir.',
+    categoria: 'Autocuidado',
+    psicologoId: 'beatriz-lemos',
+    publicadoEm: '2026-10-19',
+    paragrafos: [
+      'Muitos cuidadores contam que, com o tempo, os próprios gostos, amizades e planos foram ficando para depois. Perceber isso já é um começo. Vale a pergunta: o que era seu e ficou pelo caminho?',
+    ],
+    referencias: [],
+  },
+  {
     id: 'culpa',
+    formato: 'texto',
     titulo: 'Culpa: a visita que chega sem avisar',
     resumo: 'Sobre a culpa que aparece quando você descansa, se irrita ou sente vontade de sumir.',
     categoria: 'Emoções',
@@ -52,6 +68,7 @@ export const CONTEUDOS: Conteudo[] = [
   },
   {
     id: 'crise-em-publico',
+    formato: 'texto',
     titulo: 'Quando a crise acontece no meio da rua',
     resumo: 'Os olhares, os palpites e o que fica em você depois que tudo passa.',
     categoria: 'Neurodivergência',
@@ -69,7 +86,23 @@ export const CONTEUDOS: Conteudo[] = [
     referencias: [MISQUIATTI],
   },
   {
+    id: 'cartoes-psicoterapia-breve',
+    formato: 'cartoes',
+    titulo: 'Psicoterapia breve em 4 cartões',
+    categoria: 'Psicoterapia',
+    psicologoId: 'rafael-moraes',
+    publicadoEm: '2026-10-10',
+    cartoes: [
+      { titulo: 'Para quem é', texto: 'Para você, familiar ou cuidador(a), com uma questão emocional sua do momento.' },
+      { titulo: 'Como funciona', texto: 'Encontros online, com objetivos combinados desde o início e duração limitada.' },
+      { titulo: 'O que não é', texto: 'Não é atendimento para a pessoa cuidada nem serviço de emergência.' },
+      { titulo: 'Quanto custa', texto: 'Valor social de R$ 80 a R$ 180 por sessão, combinado no primeiro encontro.' },
+    ],
+    referencias: [HEGENBERG],
+  },
+  {
     id: 'pedir-ajuda',
+    formato: 'texto',
     titulo: 'Pedir ajuda para a família sem precisar se justificar',
     resumo: 'Quando a rede de apoio existe no papel, mas não aparece no dia a dia.',
     categoria: 'Família',
@@ -86,7 +119,21 @@ export const CONTEUDOS: Conteudo[] = [
     referencias: [MISQUIATTI],
   },
   {
+    id: 'reflexao-dia-dificil',
+    formato: 'reflexao',
+    titulo: 'Um dia difícil não apaga o cuidado de anos',
+    frase: 'Um dia difícil não apaga o cuidado de anos.',
+    categoria: 'Emoções',
+    psicologoId: 'ana-souza',
+    publicadoEm: '2026-10-05',
+    paragrafos: [
+      'Nos dias em que nada sai como planejado, a tendência é olhar só para o que faltou. O cuidado que você oferece não se mede por um dia só, e reconhecer o cansaço também faz parte dele.',
+    ],
+    referencias: [],
+  },
+  {
     id: 'o-que-e-psicoterapia-breve',
+    formato: 'texto',
     titulo: 'O que é psicoterapia breve, e o que ela não é',
     resumo: 'Foco no presente, objetivos definidos e duração limitada. Entenda antes de agendar.',
     categoria: 'Psicoterapia',
@@ -103,7 +150,23 @@ export const CONTEUDOS: Conteudo[] = [
     referencias: [HEGENBERG, NOVAIS],
   },
   {
+    id: 'cartoes-rede-de-apoio',
+    formato: 'cartoes',
+    titulo: 'Onde buscar apoio além do Laços',
+    categoria: 'Família',
+    psicologoId: 'ana-souza',
+    publicadoEm: '2026-09-30',
+    cartoes: [
+      { titulo: 'CRAS', texto: 'O Centro de Referência de Assistência Social orienta sobre benefícios, como o BPC, e programas da sua cidade.' },
+      { titulo: 'CAPS', texto: 'O Centro de Atenção Psicossocial oferece atendimento em saúde mental pelo SUS.' },
+      { titulo: 'Associações de famílias', texto: 'Grupos locais de pais e cuidadores trocam informações sobre escola, terapias e direitos.' },
+      { titulo: 'CVV, 188', texto: 'Escuta gratuita, 24 horas, por telefone ou chat, para qualquer pessoa em sofrimento.' },
+    ],
+    referencias: [],
+  },
+  {
     id: 'pequenas-pausas',
+    formato: 'texto',
     titulo: 'Pausas que cabem num dia corrido',
     resumo: 'Não é sobre uma tarde de folga. É sobre o que dá para fazer entre uma coisa e outra.',
     categoria: 'Autocuidado',
@@ -122,3 +185,5 @@ export const CONTEUDOS: Conteudo[] = [
 ];
 
 export const conteudoPorId = (id: string) => CONTEUDOS.find((c) => c.id === id);
+
+export const ehTexto = (c: Conteudo): c is ConteudoTexto => c.formato === 'texto';

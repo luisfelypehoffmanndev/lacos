@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
-import { ArrowLeft, Bookmark, Square, Volume2 } from 'lucide-react';
+import { ArrowLeft, Bookmark, Quote, Square, Volume2 } from 'lucide-react';
 import { conteudoPorId } from '../../dados/conteudos';
 import { nomeCompleto, psicologoPorId } from '../../dados/psicologos';
 import { useLoja } from '../../estado/loja';
-import type { Conteudo } from '../../estado/tipos';
 import { useNavegacao } from '../navegacao';
 import { dataPorExtenso } from '../formato';
 import { AvisoEtico } from '../componentes/Avisos';
 import { NaoEncontrado } from './NaoEncontrado';
 
 /** Lê o conteúdo em voz alta com a voz em português do próprio aparelho. */
-function BotaoOuvir({ conteudo }: { conteudo: Conteudo }) {
+function BotaoOuvir({ texto }: { texto: string }) {
   const suportado = typeof window !== 'undefined' && 'speechSynthesis' in window;
   const [tocando, setTocando] = useState(false);
 
@@ -23,7 +22,7 @@ function BotaoOuvir({ conteudo }: { conteudo: Conteudo }) {
   const alternar = () => {
     window.speechSynthesis.cancel();
     if (tocando) return setTocando(false);
-    const fala = new SpeechSynthesisUtterance([conteudo.titulo, ...conteudo.paragrafos].join('. '));
+    const fala = new SpeechSynthesisUtterance(texto);
     fala.lang = 'pt-BR';
     fala.onend = fala.onerror = () => setTocando(false);
     window.speechSynthesis.speak(fala);
@@ -48,9 +47,18 @@ export function ConteudoTela({ id }: { id: string }) {
   const { voltar, recomecar } = useNavegacao();
   const salvo = useLoja((s) => s.salvos.includes(id));
   const alternarSalvo = useLoja((s) => s.alternarSalvo);
+  const marcarLido = useLoja((s) => s.marcarLido);
   const conteudo = conteudoPorId(id);
+
+  useEffect(() => {
+    if (conteudo) marcarLido(conteudo.id);
+  }, [conteudo, marcarLido]);
+
   if (!conteudo) return <NaoEncontrado titulo="Conteúdos" texto="Não encontramos este conteúdo." />;
   const autor = psicologoPorId(conteudo.psicologoId);
+  const titulo = conteudo.formato === 'reflexao' ? conteudo.frase : conteudo.titulo;
+  const paragrafos =
+    conteudo.formato === 'cartoes' ? conteudo.cartoes.map((c) => `${c.titulo}. ${c.texto}`) : conteudo.paragrafos;
 
   const botaoRedondo = 'tocavel grid size-11 place-items-center rounded-full border border-linha bg-superficie';
 
@@ -74,14 +82,22 @@ export function ConteudoTela({ id }: { id: string }) {
         </header>
 
         <div className="px-4 pt-2">
-          <div className="relative h-60 overflow-hidden rounded-[24px] bg-laranja-claro">
-            <img src={conteudo.capa} alt={conteudo.capaAlt} className="h-full w-full object-cover" />
-            <span className="t-legenda absolute top-3 left-3 rounded-full bg-white/90 px-3 py-1.5">{conteudo.categoria}</span>
-          </div>
+          {conteudo.formato === 'texto' ? (
+            <div className="relative h-60 overflow-hidden rounded-[24px] bg-laranja-claro">
+              <img src={conteudo.capa} alt={conteudo.capaAlt} className="h-full w-full object-cover" />
+              <span className="t-legenda absolute top-3 left-3 rounded-full bg-white/90 px-3 py-1.5">{conteudo.categoria}</span>
+            </div>
+          ) : (
+            <div className="relative overflow-hidden rounded-[24px] bg-laranja px-6 pt-6 pb-8">
+              <Quote aria-hidden size={110} strokeWidth={1.2} className="absolute -top-4 -right-4 text-white/45" />
+              <span className="t-legenda rounded-full bg-white/90 px-3 py-1.5">{conteudo.categoria}</span>
+              <h1 className="t-xl mt-6 pr-4">{titulo}</h1>
+            </div>
+          )}
         </div>
 
         <article className="px-5 pt-5 pb-8">
-          <h1 className="t-lg text-laranja-forte">{conteudo.titulo}</h1>
+          {conteudo.formato === 'texto' && <h1 className="t-lg text-laranja-forte">{titulo}</h1>}
           {autor && (
             <div className="mt-4 flex items-center gap-3">
               <img src={autor.foto} alt="" className="size-11 rounded-full object-cover" />
@@ -92,23 +108,28 @@ export function ConteudoTela({ id }: { id: string }) {
             </div>
           )}
           <p className="t-legenda mt-3 text-tinta-suave">
-            Publicado em {dataPorExtenso(conteudo.publicadoEm)}. Leitura de {conteudo.minutos} min.
+            Publicado em {dataPorExtenso(conteudo.publicadoEm)}.
+            {conteudo.formato === 'texto' && ` Leitura de ${conteudo.minutos} min.`}
           </p>
-          <BotaoOuvir conteudo={conteudo} />
+          <BotaoOuvir texto={[titulo, ...paragrafos].join('. ')} />
           <div className="t-corpo mt-6 space-y-4">
-            {conteudo.paragrafos.map((p) => (
+            {paragrafos.map((p) => (
               <p key={p}>{p}</p>
             ))}
           </div>
           <div className="mt-8">
             <AvisoEtico />
           </div>
-          <h2 className="t-sm mt-6 font-semibold">Referências</h2>
-          <ul className="t-legenda mt-2 space-y-2 text-tinta-suave">
-            {conteudo.referencias.map((r) => (
-              <li key={r}>{r}</li>
-            ))}
-          </ul>
+          {conteudo.referencias.length > 0 && (
+            <>
+              <h2 className="t-sm mt-6 font-semibold">Referências</h2>
+              <ul className="t-legenda mt-2 space-y-2 text-tinta-suave">
+                {conteudo.referencias.map((r) => (
+                  <li key={r}>{r}</li>
+                ))}
+              </ul>
+            </>
+          )}
         </article>
       </div>
 

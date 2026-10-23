@@ -118,7 +118,11 @@ export function Perfil({ abrir }: { abrir?: 'sessoes' }) {
           {CONTEUDOS.filter((c) => salvos.includes(c.id)).map((c) => (
             <li key={c.id}>
               <button type="button" onClick={() => { setSecao(null); ir({ tela: 'conteudo', id: c.id }); }} className="flex w-full items-center gap-3 py-3 text-left">
-                <img src={c.capa} alt="" className="size-14 rounded-[14px] object-cover" />
+                {c.formato === 'texto' ? (
+                  <img src={c.capa} alt="" className="size-14 rounded-[14px] object-cover" />
+                ) : (
+                  <span aria-hidden className="size-14 shrink-0 rounded-[14px] bg-laranja" />
+                )}
                 <span className="t-sm flex-1 font-semibold">{c.titulo}</span>
               </button>
             </li>

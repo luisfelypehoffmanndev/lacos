@@ -113,6 +113,20 @@ describe('conteúdos salvos', () => {
   });
 });
 
+describe('conteúdos lidos', () => {
+  it('marca como lido uma vez só', () => {
+    loja().marcarLido('culpa');
+    loja().marcarLido('culpa');
+    expect(loja().lidos).toEqual(['culpa']);
+  });
+
+  it('reiniciar esquece o que foi lido', () => {
+    loja().marcarLido('culpa');
+    loja().reiniciar();
+    expect(loja().lidos).toEqual([]);
+  });
+});
+
 describe('psicoterapia breve', () => {
   it('solicita uma sessão', () => {
     expect(loja().solicitarSessao('ana-souza', 'Segunda-feira', '15h30')).toBe('ok');
