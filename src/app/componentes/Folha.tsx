@@ -29,7 +29,8 @@ export function Folha({ aberta, aoFechar, titulo, children }: Props) {
     if (aberta) {
       foiAberta.current = true;
       setSaindo(false);
-      painel.current?.focus();
+      // Sem rolar: a folha ainda está fora da tela, subindo, e o navegador puxaria o app junto.
+      painel.current?.focus({ preventScroll: true });
       const aoTeclar = (e: KeyboardEvent) => e.key === 'Escape' && aoFechar();
       document.addEventListener('keydown', aoTeclar);
       return () => document.removeEventListener('keydown', aoTeclar);
