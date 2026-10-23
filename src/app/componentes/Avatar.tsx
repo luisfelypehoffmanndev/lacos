@@ -6,7 +6,7 @@ const CORES: Record<CorFita, string> = {
   lilas: 'bg-lilas text-tinta',
   laranja: 'bg-laranja text-tinta',
   ciano: 'bg-ciano-claro text-tinta',
-  amarelo: 'bg-amarelo-claro text-tinta',
+  amarelo: 'bg-amarelo text-tinta',
 };
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
 }
 
 /** Foto, ou a inicial sobre uma cor da fita. Decorativo: o nome sempre aparece ao lado. */
-export function Avatar({ nome, foto, cor = 'azul', tamanho = 44, className = '' }: Props) {
+export function Avatar({ nome, foto, cor = 'amarelo', tamanho = 44, className = '' }: Props) {
   const estilo = { width: tamanho, height: tamanho, fontSize: tamanho * 0.42 };
   if (foto) {
     return <img src={foto} alt="" style={estilo} className={`shrink-0 rounded-full object-cover ${className}`} />;

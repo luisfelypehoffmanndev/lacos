@@ -96,7 +96,7 @@ export const useLoja = create<Dados & Acoes>()(
           const { usuario } = get();
           const relato: Relato = {
             id: novoId('relato'),
-            autor: { nome: nomeDeExibicao(usuario), papel: papelDoUsuario(usuario.genero), cor: 'azul' },
+            autor: { nome: nomeDeExibicao(usuario), papel: papelDoUsuario(usuario.genero), cor: 'amarelo' },
             texto: limpo,
             criadaEm: Date.now(),
             apoios: 0,
@@ -123,7 +123,7 @@ export const useLoja = create<Dados & Acoes>()(
               ...r.respostas,
               {
                 id: novoId('resposta'),
-                autor: { nome: nomeDeExibicao(usuario), papel: papelDoUsuario(usuario.genero), cor: 'azul' },
+                autor: { nome: nomeDeExibicao(usuario), papel: papelDoUsuario(usuario.genero), cor: 'amarelo' },
                 texto: limpo,
                 criadaEm: Date.now(),
               },

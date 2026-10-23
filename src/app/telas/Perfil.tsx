@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react';
-import { ArrowLeft, ArrowRight, Lock, Mail, Pencil } from 'lucide-react';
+import { ArrowLeft, Bookmark, CalendarDays, ChevronRight, Lock, Mail, MessagesSquare, Pencil, ShieldAlert, type LucideIcon } from 'lucide-react';
 import { CONTEUDOS } from '../../dados/conteudos';
 import { nomeCompleto, psicologoPorId } from '../../dados/psicologos';
 import { papelDoUsuario, useLoja } from '../../estado/loja';
@@ -23,7 +23,7 @@ function Vazio({ texto, acao, aoAgir }: { texto: string; acao: string; aoAgir: (
   return (
     <div className="py-6 text-center">
       <p className="t-corpo text-tinta-suave">{texto}</p>
-      <button type="button" onClick={aoAgir} className="mt-4 h-12 rounded-full bg-azul px-6 font-semibold text-white">
+      <button type="button" onClick={aoAgir} className="mt-4 h-12 rounded-full bg-tinta px-6 font-semibold text-white">
         {acao}
       </button>
     </div>
@@ -75,26 +75,29 @@ function Privacidade() {
         Na versão real: criptografia dos dados armazenados, conexão segura (HTTPS/TLS), controle de acesso, autenticação em dois
         fatores e plano de resposta a incidentes.
       </p>
-      <p className="rounded-[14px] bg-azul-claro p-3">
+      <p className="rounded-[14px] bg-ciano-claro p-3">
         Nesta demonstração nada é enviado pela internet: tudo fica guardado no navegador deste aparelho.
       </p>
     </div>
   );
 }
 
-function Linha({ rotulo, contagem, aoTocar }: { rotulo: string; contagem?: number; aoTocar: () => void }) {
+function Linha({ rotulo, Icone, cores, contagem, aoTocar }: { rotulo: string; Icone: LucideIcon; cores: string; contagem?: number; aoTocar: () => void }) {
   return (
-    <button type="button" onClick={aoTocar} className="flex h-14 w-full items-center gap-3 rounded-[18px] bg-azul-claro px-5 text-left text-azul">
+    <button type="button" onClick={aoTocar} className="flex min-h-14 w-full items-center gap-3 px-4 py-2 text-left">
+      <span className={`grid size-10 shrink-0 place-items-center rounded-full ${cores}`}>
+        <Icone size={19} aria-hidden />
+      </span>
       <span className="flex-1 font-medium">{rotulo}</span>
       {contagem !== undefined && contagem > 0 && (
-        <span className="t-legenda rounded-full bg-azul px-2 py-0.5 text-white">{contagem}</span>
+        <span className="t-legenda rounded-full bg-tinta px-2 py-0.5 text-white">{contagem}</span>
       )}
-      <ArrowRight size={20} aria-hidden />
+      <ChevronRight size={20} className="text-tinta-suave" aria-hidden />
     </button>
   );
 }
 
-/** Tela 7 — ref. 06: topo azul, cartão sobreposto com foto e nome, dados e atalhos em pílula. */
+/** Tela 7 — ref. 06: topo colorido, cartão sobreposto com foto e nome, dados e atalhos em pílula. */
 export function Perfil({ abrir }: { abrir?: 'sessoes' }) {
   const { ir, recomecar, voltar, podeVoltar } = useNavegacao();
   const usuario = useLoja((s) => s.usuario);
@@ -143,11 +146,11 @@ export function Perfil({ abrir }: { abrir?: 'sessoes' }) {
     privacidade: <Privacidade />,
   };
 
-  const botaoTopo = 'grid size-11 place-items-center rounded-full bg-white/15';
+  const botaoTopo = 'grid size-11 place-items-center rounded-full bg-white';
 
   return (
     <div className="sem-barra min-h-0 flex-1 overflow-y-auto">
-      <header className="sobre-azul rounded-b-[36px] bg-azul px-4 pt-[var(--topo-seguro)] pb-24 text-white">
+      <header className="rounded-b-[36px] bg-amarelo-claro px-4 pt-[var(--topo-seguro)] pb-24">
         <div className="flex h-14 items-center">
           {podeVoltar ? (
             <button type="button" onClick={voltar} aria-label="Voltar" className={botaoTopo}>
@@ -165,7 +168,7 @@ export function Perfil({ abrir }: { abrir?: 'sessoes' }) {
 
       <div className="relative -mt-20 space-y-3 px-5 pb-8">
         <section className="rounded-[24px] bg-superficie p-6 text-center shadow-[0_14px_32px_-16px_rgba(14,31,85,0.3)]">
-          <Avatar nome={usuario.nome || '?'} foto={usuario.foto} tamanho={88} className="mx-auto ring-4 ring-azul-claro" />
+          <Avatar nome={usuario.nome || '?'} foto={usuario.foto} tamanho={88} className="mx-auto ring-4 ring-amarelo-claro" />
           <p className="t-md mt-3">{usuario.nome || 'Visitante'}</p>
           <p className="t-sm text-tinta-suave">{papelDoUsuario(usuario.genero)}</p>
           {usuario.desde > 0 && (
@@ -175,22 +178,22 @@ export function Perfil({ abrir }: { abrir?: 'sessoes' }) {
 
         <section className="space-y-3 rounded-[24px] bg-superficie p-5 shadow-[0_14px_32px_-20px_rgba(14,31,85,0.25)]">
           <p className="t-sm flex items-center gap-3">
-            <Mail size={18} className="shrink-0 text-azul" aria-hidden />
+            <Mail size={18} className="shrink-0 text-tinta-suave" aria-hidden />
             <span className="sr-only">E-mail: </span>
             <span className="truncate">{usuario.email || 'Sem e-mail'}</span>
           </p>
           <p className="t-sm flex items-center gap-3 text-tinta-suave">
-            <Lock size={18} className="shrink-0 text-azul" aria-hidden />
+            <Lock size={18} className="shrink-0 text-tinta-suave" aria-hidden />
             Seus dados ficam só neste aparelho.
           </p>
         </section>
 
-        <nav aria-label="Minha conta" className="space-y-2.5 pt-2">
-          <Linha rotulo="Minhas sessões" contagem={nSessoes} aoTocar={() => setSecao('sessoes')} />
-          <Linha rotulo="Conteúdos salvos" contagem={salvos.length} aoTocar={() => setSecao('salvos')} />
-          <Linha rotulo="Meus relatos" contagem={meus.length} aoTocar={() => setSecao('relatos')} />
-          <Linha rotulo="Sugestões e denúncias" aoTocar={() => setSecao('mensagens')} />
-          <Linha rotulo="Privacidade e dados" aoTocar={() => setSecao('privacidade')} />
+        <nav aria-label="Minha conta" className="divide-y divide-linha overflow-hidden rounded-[24px] bg-superficie shadow-[0_14px_32px_-20px_rgba(14,31,85,0.25)]">
+          <Linha rotulo="Minhas sessões" Icone={CalendarDays} cores="bg-azul-claro text-azul" contagem={nSessoes} aoTocar={() => setSecao('sessoes')} />
+          <Linha rotulo="Conteúdos salvos" Icone={Bookmark} cores="bg-laranja-claro text-laranja-forte" contagem={salvos.length} aoTocar={() => setSecao('salvos')} />
+          <Linha rotulo="Meus relatos" Icone={MessagesSquare} cores="bg-lilas-claro text-lilas-forte" contagem={meus.length} aoTocar={() => setSecao('relatos')} />
+          <Linha rotulo="Sugestões e denúncias" Icone={ShieldAlert} cores="bg-amarelo-claro text-tinta" aoTocar={() => setSecao('mensagens')} />
+          <Linha rotulo="Privacidade e dados" Icone={Lock} cores="bg-ciano-claro text-tinta" aoTocar={() => setSecao('privacidade')} />
         </nav>
 
         <button

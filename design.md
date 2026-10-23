@@ -59,8 +59,19 @@ lilás `#D6AFF8` → pêssego `#FAA048` → amarelo `#F9BB2D`. Toda a paleta sai
 | Conteúdos | `laranja` `#FAA048` | `tinta` | `laranja-forte` `#A4520C` (sobre branco) | 7,6:1 / 5,5:1 |
 | Psicoterapia breve | `azul` `#1D4FD8` | branco | `azul` | 6,6:1 |
 
-O azul é também a cor de ação geral (botões, aba ativa): é o royal do logo. O fichamento pede que a
-psicoterapia seja "identificada pela cor azul".
+### Quem usa cada cor (para não ficar tudo azul)
+
+| Cor | Onde aparece |
+|---|---|
+| Azul | Só na **Psicoterapia** (topo, horários, solicitar) e na **boas-vindas** (o momento da marca). O fichamento pede a psicoterapia "identificada pela cor azul". |
+| Lilás | Comunidade: novo relato, apoiar, responder, denunciar; topo do **cadastro** (lilás-claro). |
+| Laranja | Conteúdos: filtros, título do texto, salvar. |
+| Amarelo | Pessoa que usa o app: inicial no avatar, topo do **Perfil** (amarelo-claro), aba Início. |
+| Ciano | Apoio: aba Perfil, privacidade, iniciais na comunidade. |
+| `tinta` | Ações neutras (Entrar no Laços, Enviar, pílulas selecionadas). |
+
+No Perfil, cada atalho leva um ícone na cor da área a que pertence (sessões em azul, salvos em
+laranja, relatos em lilás). Os tons claros aparecem em superfícies grandes; os fortes só em pontos de ação.
 
 Apoio: `ciano` `#6ACAF2` e `amarelo` `#F9BB2D` (iniciais na comunidade, elos do bloco de psicoterapia).
 
@@ -128,7 +139,7 @@ Terapia, Perfil**. A aba ativa ganha a cor do seu pilar.
 - Botões: **Criar meu cadastro** (branco) e **Já tenho cadastro** (texto).
 
 ### 2. Cadastro — ref. 03
-- Topo azul com curva, cartão branco sobreposto, campos com sublinhado (como na ref. 03).
+- Topo lilás-claro com curva, cartão branco sobreposto, campos com sublinhado (como na ref. 03).
 - Campos (fichamento, item 13: "Login: Nome e Email; mais informações não serão necessárias"):
   - Como quer ser chamado(a) — obrigatório
   - E-mail — obrigatório, validado
@@ -177,9 +188,9 @@ Terapia, Perfil**. A aba ativa ganha a cor do seu pilar.
   Resultado: **Solicitação enviada** — quem confirma é o psicólogo.
 
 ### 7. Perfil — ref. 06
-- Topo azul com voltar, "Perfil" e editar; cartão branco sobreposto com foto, nome, gênero.
+- Topo amarelo-claro com "Perfil" e editar; cartão branco sobreposto com foto, nome, papel.
 - Cartão com e-mail e "no Laços desde".
-- Linhas em pílula com seta (ref. 06): Minhas sessões, Conteúdos salvos, Meus relatos,
+- Lista de atalhos com ícone colorido e seta (ref. 06): Minhas sessões, Conteúdos salvos, Meus relatos,
   Sugestões e denúncias, Privacidade e dados.
 - **Sair**.
 

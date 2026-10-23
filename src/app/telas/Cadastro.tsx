@@ -41,7 +41,7 @@ function Campo({ rotulo, erro, ...input }: { rotulo: string; erro?: string } & I
         id={id}
         aria-invalid={erro ? true : undefined}
         aria-describedby={erro ? `${id}-erro` : undefined}
-        className="t-corpo mt-1 w-full border-b-2 placeholder:text-tinta-suave/60 border-linha bg-transparent py-2 outline-none focus:border-azul aria-invalid:border-erro"
+        className="t-corpo mt-1 w-full border-b-2 placeholder:text-tinta-suave/60 border-linha bg-transparent py-2 outline-none focus:border-lilas-forte aria-invalid:border-erro"
         {...input}
       />
       {erro && (
@@ -87,19 +87,19 @@ export function Cadastro({ modo }: { modo?: 'entrar' | 'editar' }) {
 
   return (
     <div className="sem-barra min-h-0 flex-1 overflow-y-auto bg-fundo">
-      <div className="sobre-azul relative bg-azul px-4 pt-[var(--topo-seguro)] pb-24 text-white">
+      <div className="relative bg-lilas-claro px-4 pt-[var(--topo-seguro)] pb-24">
         <div className="flex h-14 items-center">
           {podeVoltar ? (
-            <button type="button" onClick={voltar} aria-label="Voltar" className="grid size-11 place-items-center rounded-full bg-white/15">
+            <button type="button" onClick={voltar} aria-label="Voltar" className="grid size-11 place-items-center rounded-full bg-white">
               <ArrowLeft size={20} />
             </button>
           ) : (
             <span className="size-11" />
           )}
-          <img src="/marca/letreiro-branco.png" alt="laços" className="mx-auto h-9 w-auto" />
+          <img src="/marca/letreiro.png" alt="laços" className="mx-auto h-9 w-auto" />
           <span className="size-11" />
         </div>
-        <p className="t-sm mx-auto mt-4 max-w-[28ch] text-center text-white/85">
+        <p className="t-sm mx-auto mt-4 max-w-[28ch] text-center text-tinta-suave">
           {modo === 'editar' ? 'Mude o que quiser. Só nome e e-mail são obrigatórios.' : 'Leva menos de um minuto. Só pedimos o necessário.'}
         </p>
         <svg aria-hidden viewBox="0 0 390 60" preserveAspectRatio="none" className="absolute inset-x-0 -bottom-px h-14 w-full text-fundo">
@@ -125,7 +125,7 @@ export function Cadastro({ modo }: { modo?: 'entrar' | 'editar' }) {
               </p>
               <div className="mt-2 flex items-center gap-3">
                 <Avatar nome={nome || '?'} foto={foto} tamanho={56} />
-                <label className="t-sm flex h-11 cursor-pointer items-center gap-2 rounded-full border border-linha px-4 font-medium has-focus-visible:outline-2 has-focus-visible:outline-azul">
+                <label className="t-sm flex h-11 cursor-pointer items-center gap-2 rounded-full border border-linha px-4 font-medium has-focus-visible:outline-2 has-focus-visible:outline-tinta">
                   <Camera size={17} aria-hidden />
                   {foto ? 'Trocar foto' : 'Escolher foto'}
                   <input
@@ -149,7 +149,7 @@ export function Cadastro({ modo }: { modo?: 'entrar' | 'editar' }) {
           </>
         )}
 
-        <button type="submit" className="h-14 w-full rounded-full bg-azul text-[17px] font-semibold text-white">
+        <button type="submit" className="h-14 w-full rounded-full bg-tinta text-[17px] font-semibold text-white">
           {textos.botao}
         </button>
       </form>
@@ -163,7 +163,7 @@ export function Cadastro({ modo }: { modo?: 'entrar' | 'editar' }) {
           <button
             type="button"
             onClick={() => ir(modo === 'entrar' ? { tela: 'cadastro' } : { tela: 'cadastro', modo: 'entrar' })}
-            className="min-h-11 font-semibold text-azul underline underline-offset-4"
+            className="min-h-11 font-semibold text-lilas-forte underline underline-offset-4"
           >
             {modo === 'entrar' ? 'Criar cadastro' : 'Entrar'}
           </button>

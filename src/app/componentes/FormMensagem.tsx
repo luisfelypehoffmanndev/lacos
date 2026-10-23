@@ -15,12 +15,12 @@ export function FormMensagem() {
   if (enviada) {
     return (
       <div className="py-4 text-center">
-        <CheckCircle2 size={40} className="mx-auto text-azul" aria-hidden />
+        <CheckCircle2 size={40} className="mx-auto text-lilas-forte" aria-hidden />
         <p className="t-md mt-3">Mensagem enviada.</p>
         <p className="t-sm mt-1 text-tinta-suave">
           A moderação lê todas as mensagens. Denúncias são analisadas primeiro.
         </p>
-        <button type="button" onClick={() => { setTexto(''); setEnviada(false); }} className="mt-5 h-11 rounded-full px-5 font-semibold text-azul">
+        <button type="button" onClick={() => { setTexto(''); setEnviada(false); }} className="mt-5 h-11 rounded-full px-5 font-semibold text-tinta underline underline-offset-4">
           Escrever outra
         </button>
       </div>
@@ -57,10 +57,10 @@ export function FormMensagem() {
           maxLength={500}
           value={texto}
           onChange={(e) => setTexto(e.target.value)}
-          className="t-corpo mt-2 w-full resize-none rounded-[14px] border border-linha bg-fundo p-3 outline-none focus:border-azul"
+          className="t-corpo mt-2 w-full resize-none rounded-[14px] border border-linha bg-fundo p-3 outline-none focus:border-tinta"
         />
       </div>
-      <button type="submit" disabled={!texto.trim()} className="h-12 w-full rounded-full bg-azul font-semibold text-white disabled:opacity-40">
+      <button type="submit" disabled={!texto.trim()} className="h-12 w-full rounded-full bg-tinta font-semibold text-white disabled:opacity-40">
         Enviar
       </button>
     </form>

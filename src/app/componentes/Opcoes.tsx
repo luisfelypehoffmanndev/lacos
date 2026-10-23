@@ -13,7 +13,7 @@ interface Props {
 }
 
 /** Grupo de escolha única em pílulas, com radios nativos por baixo. */
-export function Opcoes({ rotulo, rotuloOculto, valor, aoMudar, opcoes, corAtiva = 'has-checked:bg-azul has-checked:text-white has-checked:border-azul', empilhado }: Props) {
+export function Opcoes({ rotulo, rotuloOculto, valor, aoMudar, opcoes, corAtiva = 'has-checked:bg-tinta has-checked:text-white has-checked:border-tinta', empilhado }: Props) {
   const nome = useId();
   return (
     <fieldset>

@@ -50,7 +50,7 @@ export const mostraAbas = (rota: Rota) =>
 
 /** Telas com topo azul pedem a barra de status com texto branco. */
 export const topoEscuro = (rota: Rota) =>
-  rota.tela === 'boas-vindas' || rota.tela === 'cadastro' || rota.tela === 'psicoterapia' || rota.tela === 'perfil';
+  rota.tela === 'boas-vindas' || rota.tela === 'psicoterapia';
 
 export function rotaParaHash(rota: Rota): string {
   if ('id' in rota) return `#/${rota.tela}/${encodeURIComponent(rota.id)}`;

@@ -2,11 +2,11 @@ import { HeartHandshake, Home, MessagesSquare, Newspaper, UserRound, type Lucide
 import { rotaParaHash, useNavegacao, type Aba, type Rota } from '../navegacao';
 
 const ABAS: { aba: Aba; rotulo: string; Icone: LucideIcon; ativa: string }[] = [
-  { aba: 'inicio', rotulo: 'Início', Icone: Home, ativa: 'text-azul bg-azul-claro' },
+  { aba: 'inicio', rotulo: 'Início', Icone: Home, ativa: 'text-tinta bg-amarelo-claro' },
   { aba: 'comunidade', rotulo: 'Comunidade', Icone: MessagesSquare, ativa: 'text-lilas-forte bg-lilas-claro' },
   { aba: 'conteudos', rotulo: 'Conteúdos', Icone: Newspaper, ativa: 'text-laranja-forte bg-laranja-claro' },
   { aba: 'psicoterapia', rotulo: 'Terapia', Icone: HeartHandshake, ativa: 'text-azul bg-azul-claro' },
-  { aba: 'perfil', rotulo: 'Perfil', Icone: UserRound, ativa: 'text-azul bg-azul-claro' },
+  { aba: 'perfil', rotulo: 'Perfil', Icone: UserRound, ativa: 'text-tinta bg-ciano-claro' },
 ];
 
 export function BarraAbas({ ativa }: { ativa: Aba }) {

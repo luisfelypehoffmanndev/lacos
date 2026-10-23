@@ -90,7 +90,7 @@ function FolhaDenuncia({ aberta, relatoId, aoFechar, aoEnviar }: { aberta: boole
           denunciar(relatoId, motivo);
           aoEnviar();
         }}
-        className="mt-5 h-12 w-full rounded-full bg-azul font-semibold text-white disabled:opacity-40"
+        className="mt-5 h-12 w-full rounded-full bg-lilas-forte font-semibold text-white disabled:opacity-40"
       >
         Enviar denúncia
       </button>
