@@ -42,7 +42,7 @@ export function AcoesRelato({ relato, aoDenunciar }: { relato: Relato; aoDenunci
           key={String(relato.apoiado)}
           size={18}
           fill={relato.apoiado ? 'currentColor' : 'none'}
-          className={relato.apoiado ? 'anim-pulsar' : undefined}
+          className={`text-lilas-forte ${relato.apoiado ? 'anim-pulsar' : ''}`}
           aria-hidden
         />
         <span aria-hidden>{relato.apoios}</span>
