@@ -131,7 +131,7 @@ Terapia, Perfil**. A aba ativa ganha a cor do seu pilar.
 ### 3. Início (menu principal) — ref. 04
 - Topo: letreiro à esquerda, foto/inicial à direita (abre o Perfil).
 - Saudação grande: "Olá, {nome}." + mensagem do dia, sincera e sem cobrança.
-- Pilares em blocos de cor chapada (como os quadros do painel do grupo), ícone branco no alto e texto embaixo:
+- Pilares em blocos de cor chapada com uma composição geométrica no canto (semicírculos e quartos de círculo do quadro de inspirações do grupo, em tons da cor do pilar), ícone num círculo branco e texto embaixo:
   Comunidade (lilás) e Conteúdos (laranja) lado a lado; **Agende uma sessão de psicoterapia
   breve** (azul) em largura total — nome usado no fichamento.
 - Faixa de apoio em crise (CVV 188, SAMU 192).

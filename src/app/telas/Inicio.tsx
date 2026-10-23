@@ -13,7 +13,7 @@ import { Laco } from '../componentes/Laco';
 /** Ícone do pilar de psicoterapia no painel do grupo: duas pessoas sentadas e dois elos. */
 function IconeSessao({ className = '' }: { className?: string }) {
   return (
-    <svg aria-hidden viewBox="0 0 120 100" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <svg aria-hidden viewBox="0 0 120 100" fill="none" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" className={className}>
       <circle cx="52" cy="14" r="9" />
       <circle cx="66" cy="14" r="9" />
       <circle cx="28" cy="38" r="8" />
@@ -33,19 +33,57 @@ interface Pilar {
   largo?: boolean;
 }
 
-/** Bloco de cor chapada, como os quadros do painel do grupo: ícone no alto, texto embaixo. */
-function BlocoPilar({ titulo, descricao, rota, cores, icone, largo }: Pilar) {
+/**
+ * Formas geométricas do quadro de inspirações do grupo (semicírculos e quartos de círculo),
+ * em tons da cor de cada pilar.
+ */
+const FORMAS: Record<'comunidade' | 'conteudos' | 'psicoterapia', ReactNode> = {
+  // Dois círculos que se encostam: duas pessoas conversando.
+  comunidade: (
+    <>
+      <circle cx="74" cy="22" r="36" fill="#B48BE8" />
+      <circle cx="108" cy="62" r="26" fill="#E6D6F8" />
+    </>
+  ),
+  // Quartos de círculo concêntricos, como páginas abertas no canto.
+  conteudos: (
+    <>
+      <path d="M110 0 V86 A86 86 0 0 1 24 0 Z" fill="#F59A52" />
+      <path d="M110 0 V44 A44 44 0 0 1 66 0 Z" fill="#B9501C" />
+    </>
+  ),
+  // Meia-lua, quarto de círculo e os dois elos do ícone do grupo.
+  psicoterapia: (
+    <>
+      <path d="M150 0 V72 A72 72 0 0 1 78 0 Z" fill="#1D3FD6" />
+      <path d="M36 180 A56 56 0 0 1 148 180 Z" fill="#4A63EE" />
+      <circle cx="64" cy="98" r="22" fill="none" stroke="#5BC8EC" strokeWidth="8" />
+      <circle cx="94" cy="98" r="22" fill="none" stroke="#F6BE2C" strokeWidth="8" />
+    </>
+  ),
+};
+
+/** Bloco do pilar: cor chapada, composição geométrica no canto, ícone em círculo branco, texto embaixo. */
+function BlocoPilar({ titulo, descricao, rota, cores, icone, forma, largo }: Pilar & { forma: keyof typeof FORMAS }) {
   const { recomecar } = useNavegacao();
   return (
     <button
       type="button"
       onClick={() => recomecar(rota)}
-      className={`flex rounded-[28px] p-5 text-left transition-transform active:scale-[0.98] ${cores} ${
-        largo ? 'col-span-2 items-center gap-4' : 'min-h-[196px] flex-col justify-between'
+      className={`relative isolate flex overflow-hidden rounded-[28px] p-5 text-left transition-transform active:scale-[0.98] ${cores} ${
+        largo ? 'col-span-2 min-h-[170px] flex-col justify-between pr-36' : 'min-h-[200px] flex-col justify-between'
       }`}
     >
-      <span className={largo ? 'order-2 shrink-0' : ''}>{icone}</span>
-      <span className={`block ${largo ? 'flex-1' : 'mt-4'}`}>
+      <svg
+        aria-hidden
+        viewBox={largo ? '0 0 150 180' : '0 0 110 110'}
+        preserveAspectRatio="xMaxYMin slice"
+        className={`absolute top-0 right-0 -z-10 ${largo ? 'h-full w-[150px]' : 'size-[110px]'}`}
+      >
+        {FORMAS[forma]}
+      </svg>
+      <span className="grid size-12 place-items-center rounded-full bg-white shadow-[0_6px_16px_-8px_rgba(18,24,74,0.5)]">{icone}</span>
+      <span className="mt-6 block">
         <span className="t-md block">{titulo}</span>
         <span className="t-sm mt-1 block opacity-85">{descricao}</span>
       </span>
@@ -81,14 +119,16 @@ export function Inicio() {
           descricao="Troque vivências com outras famílias."
           rota={{ tela: 'comunidade' }}
           cores="bg-lilas text-tinta"
-          icone={<MessagesSquare size={56} strokeWidth={1.6} className="text-white" />}
+          forma="comunidade"
+          icone={<MessagesSquare size={22} strokeWidth={2} className="text-lilas-forte" />}
         />
         <BlocoPilar
           titulo="Conteúdos"
           descricao="Textos de psicólogos sobre o cuidado."
           rota={{ tela: 'conteudos' }}
           cores="bg-laranja text-tinta"
-          icone={<Newspaper size={56} strokeWidth={1.6} className="text-white" />}
+          forma="conteudos"
+          icone={<Newspaper size={22} strokeWidth={2} className="text-laranja-forte" />}
         />
         <BlocoPilar
           largo
@@ -96,7 +136,8 @@ export function Inicio() {
           descricao="Escuta profissional para você, que cuida."
           rota={{ tela: 'psicoterapia' }}
           cores="sobre-azul bg-azul text-white"
-          icone={<IconeSessao className="h-24 w-28 text-white" />}
+          forma="psicoterapia"
+          icone={<IconeSessao className="h-7 w-8 text-azul" />}
         />
       </section>
 
