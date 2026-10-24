@@ -96,7 +96,10 @@ export function Cadastro({ modo }: { modo?: 'entrar' | 'editar' }) {
           ) : (
             <span className="size-11" />
           )}
-          <img src="/marca/letreiro.png" alt="laços" className="mx-auto h-9 w-auto" />
+          <span className="mx-auto flex items-center gap-2">
+            <img src="/marca/simbolo.png" alt="" className="h-10 w-auto" />
+            <img src="/marca/letreiro.png" alt="laços" className="h-9 w-auto" />
+          </span>
           <span className="size-11" />
         </div>
         <p className="t-sm mx-auto mt-4 max-w-[28ch] text-center text-tinta-suave">

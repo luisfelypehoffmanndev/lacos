@@ -39,6 +39,12 @@ describe('boas-vindas e cadastro', () => {
     expect(titulo('Olá, Marina.')).toBeInTheDocument();
   });
 
+  it('o topo do cadastro mostra o símbolo ao lado do letreiro', () => {
+    abrir({ tela: 'cadastro' });
+    const letreiro = screen.getByRole('img', { name: 'laços' });
+    expect(letreiro.parentElement?.querySelector('img[src="/marca/simbolo.png"]')).not.toBeNull();
+  });
+
   it('quem já tem cadastro vai direto ao Início', async () => {
     cadastrar();
     const user = abrir({ tela: 'boas-vindas' });
