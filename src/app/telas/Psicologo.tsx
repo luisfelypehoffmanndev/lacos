@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Video } from 'lucide-react';
-import { nomeCompleto, psicologoPorId } from '../../dados/psicologos';
+import { nomeCompleto, psicologoPorId, valorDaSessao } from '../../dados/psicologos';
 import { useLoja } from '../../estado/loja';
 import type { DiaSemana, Psicologo as TipoPsicologo } from '../../estado/tipos';
 import { useNavegacao } from '../navegacao';
@@ -62,7 +62,7 @@ function FolhaSolicitacao({ psicologo, horario, aoFechar }: { psicologo: TipoPsi
                 ['Profissional', `${nomeCompleto(psicologo)}, ${psicologo.crp}`],
                 ['Horário', `${horario.dia}, ${horario.hora}`],
                 ['Formato', 'Online, por vídeo'],
-                ['Valor', 'R$ 80 a R$ 180, combinado na 1ª sessão'],
+                ['Valor', `${valorDaSessao(psicologo)} por sessão`],
               ].map(([t, d]) => (
                 <div key={t} className="flex gap-3 px-4 py-3">
                   <dt className="w-24 shrink-0 text-tinta-suave">{t}</dt>
@@ -73,7 +73,7 @@ function FolhaSolicitacao({ psicologo, horario, aoFechar }: { psicologo: TipoPsi
             <label className="flex cursor-pointer gap-3 rounded-[14px] bg-azul-claro p-3">
               <input type="checkbox" checked={aceite} onChange={(e) => setAceite(e.target.checked)} className="mt-0.5 size-5 shrink-0 accent-azul" />
               <span className="t-sm">
-                Entendo que o atendimento é para mim, como familiar ou cuidador(a); que objetivos, número de sessões e valor são
+                Entendo que o atendimento é para mim, como familiar ou cuidador(a); que objetivos e número de sessões são
                 combinados na primeira sessão; e que este não é um serviço de emergência.
               </span>
             </label>
@@ -156,7 +156,7 @@ export function Psicologo({ id }: { id: string }) {
 
       <div className="flex items-center gap-4 border-t border-linha bg-superficie px-5 pt-3 pb-[calc(12px+var(--base-segura))]">
         <div>
-          <p className="t-md">R$ 80–180</p>
+          <p className="t-md">{valorDaSessao(psicologo)}</p>
           <p className="t-legenda text-tinta-suave">por sessão, valor social</p>
         </div>
         <button

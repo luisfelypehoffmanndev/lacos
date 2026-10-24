@@ -197,9 +197,12 @@ describe('Psicoterapia breve', () => {
     const user = abrir({ tela: 'psicoterapia' });
     expect(screen.getByText(/R\$ 80 a R\$ 180/)).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: /Psicóloga Ana Souza/ }));
+    const ana = screen.getByRole('button', { name: /Psicóloga Ana Souza/ });
+    expect(ana).toHaveTextContent('R$ 120 por sessão');
+    await user.click(ana);
     expect(titulo('Psicóloga Ana Souza')).toBeInTheDocument();
     expect(screen.getByText('CRP 07/00001')).toBeInTheDocument();
+    expect(screen.getByText('R$ 120')).toBeInTheDocument();
 
     const solicitar = screen.getByRole('button', { name: 'Solicitar sessão' });
     expect(solicitar).toBeDisabled();
@@ -209,6 +212,7 @@ describe('Psicoterapia breve', () => {
     const folha = screen.getByRole('dialog', { name: 'Confirmar solicitação' });
     const enviar = within(folha).getByRole('button', { name: 'Enviar solicitação' });
     expect(enviar).toBeDisabled();
+    expect(within(folha).getByText('R$ 120 por sessão')).toBeInTheDocument();
     await user.click(within(folha).getByRole('checkbox'));
     await user.click(enviar);
     expect(within(folha).getByRole('heading', { name: 'Solicitação enviada' })).toBeInTheDocument();

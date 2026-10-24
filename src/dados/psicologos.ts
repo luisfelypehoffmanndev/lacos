@@ -13,6 +13,7 @@ export const PSICOLOGOS: Psicologo[] = [
     crp: 'CRP 07/00001',
     foto: '/img/psi-ana-souza.jpg',
     formacao: 'Pós-graduada em Psicologia Social e Comunitária',
+    valor: 120,
     minicurriculo:
       'Atende mães, pais e outros familiares que cuidam de pessoas neurodivergentes. Trabalha com demandas como sobrecarga, culpa e reorganização da rotina depois de um diagnóstico na família.',
     horarios: [
@@ -28,6 +29,7 @@ export const PSICOLOGOS: Psicologo[] = [
     crp: 'CRP 07/00002',
     foto: '/img/psi-beatriz-lemos.jpg',
     formacao: 'Especialista em Psicologia Clínica',
+    valor: 150,
     minicurriculo:
       'Experiência com familiares de pessoas com depressão e transtorno bipolar. Atende demandas de ansiedade, esgotamento e conflitos familiares ligados ao cuidado.',
     horarios: [
@@ -42,6 +44,7 @@ export const PSICOLOGOS: Psicologo[] = [
     crp: 'CRP 07/00003',
     foto: '/img/psi-rafael-moraes.jpg',
     formacao: 'Mestre em Psicologia',
+    valor: 90,
     minicurriculo:
       'Atende pais e cônjuges cuidadores. Interesse em paternidade atípica, divisão do cuidado no casal e momentos de transição, como a entrada na escola ou na vida adulta.',
     horarios: [
@@ -55,3 +58,5 @@ export const PSICOLOGOS: Psicologo[] = [
 export const psicologoPorId = (id: string) => PSICOLOGOS.find((p) => p.id === id);
 
 export const nomeCompleto = (p: Psicologo) => `${p.titulo} ${p.nome}`;
+
+export const valorDaSessao = (p: Psicologo) => `R$ ${p.valor}`;

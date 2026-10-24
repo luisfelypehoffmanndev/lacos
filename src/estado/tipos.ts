@@ -91,6 +91,8 @@ export interface Psicologo {
   crp: string;
   foto: string;
   formacao: string;
+  /** Valor da sessão em reais, fixo por profissional, dentro da faixa social de R$ 80 a R$ 180. */
+  valor: number;
   minicurriculo: string;
   horarios: { dia: DiaSemana; horas: string[] }[];
 }

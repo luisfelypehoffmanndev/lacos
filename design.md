@@ -209,12 +209,13 @@ A aba ativa ganha a cor da sua área.
 - O que é a psicoterapia breve, em três frases.
 - "Quando não é indicada" (expansível): atendimento é para o cuidador, não para a pessoa cuidada;
   orientação sem demanda própria; emergência.
-- Valor social **R$ 80 a R$ 180** por sessão; número de sessões e objetivos definidos no
+- Valor social na faixa de **R$ 80 a R$ 180**; cada profissional tem o seu valor fixo, mostrado na
+  lista, na tela do profissional e na confirmação. Número de sessões e objetivos definidos no
   contrato terapêutico da 1ª sessão (Resolução CFP nº 13/2022).
 - Lista de psicólogos: foto, nome completo, CRP, formação. Sem estrelas, notas ou "mais procurado"
   (Nota Técnica CFP nº 01/2022: sem autopromoção).
 - Tela do psicólogo: minicurrículo, horários por dia em chips (exemplo do fichamento: seg 14h,
-  15h30, 17h; qua 9h, 19h; sex 11h). Barra inferior fixa: "R$ 80–180 / sessão" + **Solicitar sessão**.
+  15h30, 17h; qua 9h, 19h; sex 11h). Barra inferior fixa: valor do profissional por sessão + **Solicitar sessão**.
 - Confirmação: resumo + aceite (sigilo, contrato na 1ª sessão, não é serviço de emergência).
   Resultado: **Solicitação enviada** — quem confirma é o psicólogo.
 

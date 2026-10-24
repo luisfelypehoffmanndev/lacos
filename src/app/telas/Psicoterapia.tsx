@@ -1,12 +1,12 @@
 import { ChevronDown, ChevronRight } from 'lucide-react';
-import { PSICOLOGOS, nomeCompleto } from '../../dados/psicologos';
+import { PSICOLOGOS, nomeCompleto, valorDaSessao } from '../../dados/psicologos';
 import { useNavegacao } from '../navegacao';
 import { ApoioCrise } from '../componentes/Avisos';
 
 const PASSOS = [
   'Você escolhe um profissional e um horário.',
   'O profissional confirma a sessão pelo seu e-mail.',
-  'No primeiro encontro, vocês combinam objetivos, número de sessões e valor. É o contrato terapêutico (Resolução CFP nº 13/2022).',
+  'No primeiro encontro, vocês combinam objetivos e número de sessões. É o contrato terapêutico (Resolução CFP nº 13/2022).',
 ];
 
 /** Tela 6 — fichamento, itens 11 e 13: o que é, limites, valor social e profissionais com CRP. */
@@ -70,6 +70,7 @@ export function Psicoterapia() {
                   <span className="block text-[16px] leading-5 font-semibold">{nomeCompleto(p)}</span>
                   <span className="t-legenda mt-0.5 block text-azul">{p.crp}</span>
                   <span className="t-legenda mt-0.5 block text-tinta-suave">{p.formacao}</span>
+                  <span className="t-legenda mt-1 block font-semibold">{valorDaSessao(p)} por sessão</span>
                 </span>
                 <ChevronRight size={20} className="shrink-0 text-tinta-suave" aria-hidden />
               </button>

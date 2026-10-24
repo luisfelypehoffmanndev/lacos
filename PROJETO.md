@@ -118,7 +118,7 @@ Cada pilar tem nome, cor e ícone próprios (fichamento, item 11). Cores e telas
 - **Fichamento:** seção "Agende uma sessão de psicoterapia breve"; texto curto sobre a modalidade;
   psicólogos com foto, nome completo, CRP e breve apresentação; dias e horários; solicitar/agendar.
 - **No protótipo:** o que é, como funciona, quando **não** é indicada, valor social de **R$ 80 a
-  R$ 180**, 3 profissionais fictícios (Ana Souza usa exatamente o exemplo do fichamento), escolha de
+  R$ 180**, com um valor fixo por profissional (Ana R$ 120, Beatriz R$ 150, Rafael R$ 90), 3 profissionais fictícios (Ana Souza usa exatamente o exemplo do fichamento), escolha de
   horário e solicitação com aceite. A solicitação fica "aguardando confirmação" — quem confirma é o
   profissional.
 - **Número de sessões e objetivos:** definidos no contrato terapêutico da 1ª sessão (Resolução CFP

@@ -84,3 +84,8 @@ Pequenas, em resposta ao toque; uma única abertura na boas-vindas. `prefers-red
 - [x] Abertura: laço se desenha e mascote sobe (uma vez por carregamento)
 - [x] Vibração leve (Android) em apoiar, publicar e enviar solicitação
 - [x] design.md atualizado, testes e build verdes, prints conferidos
+
+## Ajustes de 24/10/2026
+- [x] Cadastro: símbolo do Laços ao lado do letreiro no topo.
+- [x] Psicoterapia: valor fixo por profissional dentro da faixa R$ 80–180 (Ana 120, Beatriz 150,
+  Rafael 90), na lista, na tela do profissional e na confirmação. Testes em `psicologos.test.ts`.
