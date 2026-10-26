@@ -104,7 +104,7 @@ export function Inicio() {
       <header className="relative overflow-x-clip px-5 pt-[var(--topo-seguro)]">
         <Laco variante="fina" className="pointer-events-none absolute top-16 -right-20 h-56 w-56" />
         <div className="relative flex h-14 items-center justify-between">
-          <img src="/marca/letreiro.png" alt="laços" className="h-8 w-auto" />
+          <img src={`${import.meta.env.BASE_URL}marca/letreiro.png`} alt="laços" className="h-8 w-auto" />
           <button type="button" onClick={() => ir({ tela: 'perfil' })} aria-label="Abrir meu perfil" className="rounded-full">
             <Avatar nome={usuario.nome || '?'} foto={usuario.foto} tamanho={42} />
           </button>

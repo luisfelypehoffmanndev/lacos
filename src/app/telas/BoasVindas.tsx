@@ -19,8 +19,8 @@ export function BoasVindas() {
     <div className={`sobre-azul relative flex min-h-0 flex-1 flex-col overflow-hidden bg-azul text-white ${abrir ? 'abertura' : ''}`}>
       <Laco variante="grande" className="absolute inset-0 h-full w-full" />
       <div className="sem-barra relative flex flex-1 flex-col overflow-y-auto px-6 pt-[calc(var(--topo-seguro)+16px)] pb-[calc(20px+var(--base-segura))] text-center">
-        <img src="/marca/letreiro-branco.png" alt="laços" className="mx-auto h-12 w-auto" />
-        <img src="/marca/mascote.png" alt="" className="mascote mx-auto mt-5 w-40 drop-shadow-[0_12px_24px_rgba(10,36,128,0.35)]" />
+        <img src={`${import.meta.env.BASE_URL}marca/letreiro-branco.png`} alt="laços" className="mx-auto h-12 w-auto" />
+        <img src={`${import.meta.env.BASE_URL}marca/mascote.png`} alt="" className="mascote mx-auto mt-5 w-40 drop-shadow-[0_12px_24px_rgba(10,36,128,0.35)]" />
         <h1 className="mt-6 font-titulo text-[32px] leading-[36px] tracking-[-0.02em] text-balance">
           <span className="font-light">Conectando histórias,</span> <span className="font-extrabold">fortalecendo famílias.</span>
         </h1>
