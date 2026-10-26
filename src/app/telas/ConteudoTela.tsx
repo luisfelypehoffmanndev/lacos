@@ -133,7 +133,7 @@ export function ConteudoTela({ id }: { id: string }) {
         </article>
       </div>
 
-      <div className="flex items-center gap-4 border-t border-linha bg-superficie px-5 pt-3 pb-[calc(12px+var(--base-segura))]">
+      <div className="flex items-center gap-4 rounded-b-[inherit] border-t border-linha bg-superficie px-5 pt-3 pb-[calc(12px+var(--base-segura))]">
         <p className="t-sm flex-1">Quer conversar sobre isso com um profissional?</p>
         <button type="button" onClick={() => recomecar({ tela: 'psicoterapia' })} className="tocavel h-12 shrink-0 rounded-full bg-azul px-5 font-semibold text-white">
           Ver psicoterapia

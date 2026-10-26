@@ -13,7 +13,7 @@ export function Cabecalho({ titulo, comoTitulo = true, direita }: Props) {
   const { voltar, podeVoltar } = useNavegacao();
   const Titulo = comoTitulo ? 'h1' : 'p';
   return (
-    <header className="sticky top-0 z-10 bg-fundo/95 pt-[var(--topo-seguro)] backdrop-blur">
+    <header className="sticky top-0 z-10 rounded-t-[inherit] bg-fundo/95 pt-[var(--topo-seguro)] backdrop-blur">
       <div className="flex h-14 items-center gap-2 px-3">
         {podeVoltar ? (
           <button

@@ -101,7 +101,7 @@ export function Inicio() {
 
   return (
     <div className="sem-barra min-h-0 flex-1 overflow-y-auto">
-      <header className="relative overflow-x-clip px-5 pt-[var(--topo-seguro)]">
+      <header className="relative rounded-t-[inherit] overflow-x-clip px-5 pt-[var(--topo-seguro)]">
         <Laco variante="fina" className="pointer-events-none absolute top-16 -right-20 h-56 w-56" />
         <div className="relative flex h-14 items-center justify-between">
           <img src={`${import.meta.env.BASE_URL}marca/letreiro.png`} alt="laços" className="h-8 w-auto" />

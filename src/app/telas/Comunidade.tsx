@@ -99,7 +99,7 @@ export function Comunidade() {
   return (
     <>
       <div className="sem-barra min-h-0 flex-1 overflow-y-auto">
-        <header className="sticky top-0 z-10 bg-fundo/95 pt-[var(--topo-seguro)] backdrop-blur">
+        <header className="sticky top-0 z-10 rounded-t-[inherit] bg-fundo/95 pt-[var(--topo-seguro)] backdrop-blur">
           <div className="flex h-14 items-center px-4">
             <button type="button" onClick={() => ir({ tela: 'perfil' })} aria-label="Abrir meu perfil" className="rounded-full">
               <Avatar nome={usuario.nome || '?'} foto={usuario.foto} tamanho={36} />

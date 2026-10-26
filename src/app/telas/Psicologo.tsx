@@ -154,7 +154,7 @@ export function Psicologo({ id }: { id: string }) {
         </div>
       </div>
 
-      <div className="flex items-center gap-4 border-t border-linha bg-superficie px-5 pt-3 pb-[calc(12px+var(--base-segura))]">
+      <div className="flex items-center gap-4 rounded-b-[inherit] border-t border-linha bg-superficie px-5 pt-3 pb-[calc(12px+var(--base-segura))]">
         <div>
           <p className="t-md">{valorDaSessao(psicologo)}</p>
           <p className="t-legenda text-tinta-suave">por sessão, valor social</p>

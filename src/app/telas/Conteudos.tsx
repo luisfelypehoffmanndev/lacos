@@ -130,7 +130,7 @@ export function Conteudos() {
 
   return (
     <div className="sem-barra min-h-0 flex-1 overflow-y-auto">
-      <header className="px-5 pt-[calc(var(--topo-seguro)+12px)]">
+      <header className="rounded-t-[inherit] px-5 pt-[calc(var(--topo-seguro)+12px)]">
         <p className="t-sm text-tinta-suave">Escritos por psicólogas e psicólogos com CRP ativo</p>
         <h1 className="t-xl mt-1">Conteúdos</h1>
       </header>

@@ -87,7 +87,7 @@ export function Cadastro({ modo }: { modo?: 'entrar' | 'editar' }) {
 
   return (
     <div className="sem-barra min-h-0 flex-1 overflow-y-auto bg-fundo">
-      <div className="relative bg-ciano-claro px-4 pt-[var(--topo-seguro)] pb-24">
+      <div className="relative rounded-t-[inherit] bg-ciano-claro px-4 pt-[var(--topo-seguro)] pb-24">
         <div className="flex h-14 items-center">
           {podeVoltar ? (
             <button type="button" onClick={voltar} aria-label="Voltar" className="grid size-11 place-items-center rounded-full bg-white">

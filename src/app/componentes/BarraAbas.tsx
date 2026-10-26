@@ -13,7 +13,7 @@ const ABAS: { aba: Aba; rotulo: string; Icone: LucideIcon; ativa: string }[] = [
 export function BarraAbas({ ativa }: { ativa: Aba }) {
   const { recomecar } = useNavegacao();
   return (
-    <nav aria-label="Seções" className="shrink-0 border-t border-linha bg-superficie pb-[var(--base-segura)]">
+    <nav aria-label="Seções" className="shrink-0 rounded-b-[inherit] border-t border-linha bg-superficie pb-[var(--base-segura)]">
       <ul className="grid grid-cols-5 px-1.5 pt-1.5 pb-1">
         {ABAS.map(({ aba, rotulo, Icone, ativa: cores }) => {
           const atual = aba === ativa;

@@ -16,7 +16,7 @@ export function BoasVindas() {
   }, []);
 
   return (
-    <div className={`sobre-azul relative flex min-h-0 flex-1 flex-col overflow-hidden bg-azul text-white ${abrir ? 'abertura' : ''}`}>
+    <div className={`sobre-azul relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-[inherit] bg-azul text-white ${abrir ? 'abertura' : ''}`}>
       <Laco variante="grande" className="absolute inset-0 h-full w-full" />
       <div className="sem-barra relative flex flex-1 flex-col overflow-y-auto px-6 pt-[calc(var(--topo-seguro)+16px)] pb-[calc(20px+var(--base-segura))] text-center">
         <img src={`${import.meta.env.BASE_URL}marca/letreiro-branco.png`} alt="laços" className="mx-auto h-12 w-auto" />

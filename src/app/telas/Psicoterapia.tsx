@@ -15,7 +15,7 @@ export function Psicoterapia() {
 
   return (
     <div className="sem-barra min-h-0 flex-1 overflow-y-auto">
-      <header className="sobre-azul rounded-b-[32px] bg-azul px-5 pt-[calc(var(--topo-seguro)+16px)] pb-7 text-white">
+      <header className="sobre-azul rounded-t-[inherit] rounded-b-[32px] bg-azul px-5 pt-[calc(var(--topo-seguro)+16px)] pb-7 text-white">
         <h1 className="t-xl">Psicoterapia breve</h1>
         <p className="t-corpo mt-3 text-white/90">
           Um espaço de escuta para você, que cuida. Atendimento online, focado em uma questão sua do momento, com duração limitada.

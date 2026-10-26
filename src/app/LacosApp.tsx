@@ -91,7 +91,7 @@ export function LacosApp({ rotaInicial = { tela: 'boas-vindas' }, moldura = fals
   return (
     <NavegacaoContexto.Provider value={nav}>
       <div
-        className="lacos-app relative flex h-full w-full flex-col overflow-hidden bg-fundo text-tinta"
+        className={`lacos-app relative flex h-full w-full flex-col overflow-hidden ${rota.tela === 'boas-vindas' ? 'bg-azul' : 'bg-fundo'} text-tinta ${moldura ? 'rounded-[50px]' : ''}`}
         data-moldura={moldura || undefined}
       >
         <div key={`${rotaParaHash(rota)}:${pilha.length}`} data-direcao={direcao} className="relative flex min-h-0 flex-1 flex-col">

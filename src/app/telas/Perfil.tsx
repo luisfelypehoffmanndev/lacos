@@ -154,7 +154,7 @@ export function Perfil({ abrir }: { abrir?: 'sessoes' }) {
 
   return (
     <div className="sem-barra min-h-0 flex-1 overflow-y-auto">
-      <header className="rounded-b-[36px] bg-amarelo-claro px-4 pt-[var(--topo-seguro)] pb-24">
+      <header className="rounded-t-[inherit] rounded-b-[36px] bg-amarelo-claro px-4 pt-[var(--topo-seguro)] pb-24">
         <div className="flex h-14 items-center">
           {podeVoltar ? (
             <button type="button" onClick={voltar} aria-label="Voltar" className={botaoTopo}>
