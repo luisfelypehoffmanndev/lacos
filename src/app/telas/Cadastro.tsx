@@ -97,8 +97,8 @@ export function Cadastro({ modo }: { modo?: 'entrar' | 'editar' }) {
             <span className="size-11" />
           )}
           <span className="mx-auto flex items-center gap-2">
-            <img src="/marca/simbolo.png" alt="" className="h-10 w-auto" />
-            <img src="/marca/letreiro.png" alt="laços" className="h-9 w-auto" />
+            <img src={`${import.meta.env.BASE_URL}marca/simbolo.png`} alt="" className="h-10 w-auto" />
+            <img src={`${import.meta.env.BASE_URL}marca/letreiro.png`} alt="laços" className="h-9 w-auto" />
           </span>
           <span className="size-11" />
         </div>

@@ -1,5 +1,7 @@
 import type { Psicologo } from '../estado/tipos';
 
+const BASE = import.meta.env.BASE_URL;
+
 /**
  * Profissionais fictícios. Nomes, fotos e CRPs são de demonstração.
  * Ana Souza e seus horários seguem o exemplo do fichamento (item 13).
@@ -11,7 +13,7 @@ export const PSICOLOGOS: Psicologo[] = [
     nome: 'Ana Souza',
     titulo: 'Psicóloga',
     crp: 'CRP 07/00001',
-    foto: '/img/psi-ana-souza.jpg',
+    foto: `${BASE}img/psi-ana-souza.jpg`,
     formacao: 'Pós-graduada em Psicologia Social e Comunitária',
     valor: 120,
     minicurriculo:
@@ -27,7 +29,7 @@ export const PSICOLOGOS: Psicologo[] = [
     nome: 'Beatriz Lemos',
     titulo: 'Psicóloga',
     crp: 'CRP 07/00002',
-    foto: '/img/psi-beatriz-lemos.jpg',
+    foto: `${BASE}img/psi-beatriz-lemos.jpg`,
     formacao: 'Especialista em Psicologia Clínica',
     valor: 150,
     minicurriculo:
@@ -42,7 +44,7 @@ export const PSICOLOGOS: Psicologo[] = [
     nome: 'Rafael Moraes',
     titulo: 'Psicólogo',
     crp: 'CRP 07/00003',
-    foto: '/img/psi-rafael-moraes.jpg',
+    foto: `${BASE}img/psi-rafael-moraes.jpg`,
     formacao: 'Mestre em Psicologia',
     valor: 90,
     minicurriculo:

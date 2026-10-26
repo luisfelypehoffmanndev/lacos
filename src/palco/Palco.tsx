@@ -69,7 +69,7 @@ function TelasLadoALado({ aoVoltar }: { aoVoltar: () => void }) {
   return (
     <div className="flex h-full flex-col text-white">
       <header className="flex items-center gap-4 px-8 pt-6">
-        <img src="/marca/letreiro-branco.png" alt="laços" className="h-8" />
+        <img src={`${import.meta.env.BASE_URL}marca/letreiro-branco.png`} alt="laços" className="h-8" />
         <p className="flex-1 text-sm text-white/70">As 7 telas da jornada. Cada celular pode ser usado normalmente.</p>
         <div className="w-56">
           <Botao onClick={aoVoltar}>
@@ -133,7 +133,7 @@ export function Palco() {
     <div className="flex h-full items-center justify-center gap-14 overflow-auto p-6 text-white">
       <aside className="flex max-h-full w-72 shrink-0 flex-col gap-7 self-stretch overflow-y-auto py-4">
         <div>
-          <img src="/marca/letreiro-branco.png" alt="laços" className="h-12" />
+          <img src={`${import.meta.env.BASE_URL}marca/letreiro-branco.png`} alt="laços" className="h-12" />
           <p className="mt-3 text-sm text-white/70">Protótipo navegável. Toque no celular como num aparelho de verdade.</p>
         </div>
 

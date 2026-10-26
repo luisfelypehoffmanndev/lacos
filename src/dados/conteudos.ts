@@ -1,5 +1,7 @@
 import type { Conteudo, ConteudoTexto } from '../estado/tipos';
 
+const BASE = import.meta.env.BASE_URL;
+
 /** Texto obrigatório ao fim de todo conteúdo (fichamento, item 16). */
 export const AVISO_ETICO =
   'Este conteúdo tem finalidade informativa e educativa. Ele não substitui uma avaliação ou um acompanhamento psicológico individualizado. Cada pessoa possui necessidades e experiências próprias. Em caso de sofrimento psicológico, procure orientação profissional.';
@@ -22,7 +24,7 @@ export const CONTEUDOS: Conteudo[] = [
     titulo: 'O cansaço de quem cuida não é fraqueza',
     resumo: 'Por que a exaustão aparece mesmo quando você "não fez nada de diferente" hoje.',
     categoria: 'Autocuidado',
-    capa: '/img/capa-descanso.jpg',
+    capa: `${BASE}img/capa-descanso.jpg`,
     capaAlt: 'Pessoa dormindo com o rosto apoiado no travesseiro',
     minutos: 3,
     psicologoId: 'ana-souza',
@@ -54,7 +56,7 @@ export const CONTEUDOS: Conteudo[] = [
     titulo: 'Culpa: a visita que chega sem avisar',
     resumo: 'Sobre a culpa que aparece quando você descansa, se irrita ou sente vontade de sumir.',
     categoria: 'Emoções',
-    capa: '/img/capa-escrita.jpg',
+    capa: `${BASE}img/capa-escrita.jpg`,
     capaAlt: 'Caneta-tinteiro escrevendo em uma folha pautada',
     minutos: 4,
     psicologoId: 'beatriz-lemos',
@@ -72,7 +74,7 @@ export const CONTEUDOS: Conteudo[] = [
     titulo: 'Quando a crise acontece no meio da rua',
     resumo: 'Os olhares, os palpites e o que fica em você depois que tudo passa.',
     categoria: 'Neurodivergência',
-    capa: '/img/capa-floresta.jpg',
+    capa: `${BASE}img/capa-floresta.jpg`,
     capaAlt: 'Trilha de terra no meio de uma floresta de árvores altas',
     minutos: 4,
     psicologoId: 'rafael-moraes',
@@ -106,7 +108,7 @@ export const CONTEUDOS: Conteudo[] = [
     titulo: 'Pedir ajuda para a família sem precisar se justificar',
     resumo: 'Quando a rede de apoio existe no papel, mas não aparece no dia a dia.',
     categoria: 'Família',
-    capa: '/img/capa-cha.jpg',
+    capa: `${BASE}img/capa-cha.jpg`,
     capaAlt: 'Xícara de café com leite e dois biscoitos sobre um descanso de madeira',
     minutos: 3,
     psicologoId: 'ana-souza',
@@ -137,7 +139,7 @@ export const CONTEUDOS: Conteudo[] = [
     titulo: 'O que é psicoterapia breve, e o que ela não é',
     resumo: 'Foco no presente, objetivos definidos e duração limitada. Entenda antes de agendar.',
     categoria: 'Psicoterapia',
-    capa: '/img/capa-caderno.jpg',
+    capa: `${BASE}img/capa-caderno.jpg`,
     capaAlt: 'Mão segurando uma caneta sobre um caderno, ao lado de uma xícara',
     minutos: 3,
     psicologoId: 'beatriz-lemos',
@@ -170,7 +172,7 @@ export const CONTEUDOS: Conteudo[] = [
     titulo: 'Pausas que cabem num dia corrido',
     resumo: 'Não é sobre uma tarde de folga. É sobre o que dá para fazer entre uma coisa e outra.',
     categoria: 'Autocuidado',
-    capa: '/img/capa-amanhecer.jpg',
+    capa: `${BASE}img/capa-amanhecer.jpg`,
     capaAlt: 'Sol nascendo sobre um campo com árvores e neblina',
     minutos: 2,
     psicologoId: 'rafael-moraes',
