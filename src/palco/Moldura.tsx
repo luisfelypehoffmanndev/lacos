@@ -28,8 +28,19 @@ function Bateria() {
 }
 
 /** Celular de 390 × 844 com ilha dinâmica, barra de status e indicador de início. */
-export function Moldura({ children, topoEscuro, escala = 1 }: { children: ReactNode; topoEscuro: boolean; escala?: number }) {
+export function Moldura({
+  children,
+  topoEscuro,
+  corFundo,
+  escala = 1,
+}: {
+  children: ReactNode;
+  topoEscuro: boolean;
+  corFundo?: string;
+  escala?: number;
+}) {
   const cor = topoEscuro ? 'text-white' : 'text-tinta';
+  const fundo = corFundo ?? (topoEscuro ? 'bg-azul' : 'bg-fundo');
   return (
     <div style={{ width: LARGURA_MOLDURA * escala, height: ALTURA_MOLDURA * escala }} className="shrink-0">
       <div
@@ -37,7 +48,7 @@ export function Moldura({ children, topoEscuro, escala = 1 }: { children: ReactN
         className="origin-top-left rounded-[62px] bg-[#06143f] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.8),inset_0_0_0_2px_rgba(255,255,255,0.08)]"
       >
         <div
-          className={`relative h-full w-full overflow-hidden rounded-[50px] ${topoEscuro ? 'bg-azul' : 'bg-fundo'}`}
+          className={`relative h-full w-full overflow-hidden rounded-[50px] ${fundo}`}
           style={{ transform: 'translateZ(0)' }}
         >
           {children}

@@ -23,7 +23,8 @@ export function Psicoterapia() {
         <p className="t-sm mt-5 inline-block rounded-full bg-white/15 px-4 py-2 font-medium">Valor social: R$ 80 a R$ 180 por sessão</p>
       </header>
 
-      <section className="mt-7 px-5">
+      <div className="bg-fundo pt-7 pb-8 text-tinta">
+        <section className="px-5">
         <h2 className="t-md">Como funciona</h2>
         <ol className="mt-3 space-y-3">
           {PASSOS.map((p, i) => (
@@ -79,8 +80,9 @@ export function Psicoterapia() {
         </ul>
       </section>
 
-      <div className="mt-7 px-5 pb-8">
-        <ApoioCrise nota="O agendamento não é atendimento de urgência." />
+        <div className="mt-7 px-5">
+          <ApoioCrise nota="O agendamento não é atendimento de urgência." />
+        </div>
       </div>
     </div>
   );

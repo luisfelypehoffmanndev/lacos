@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { LayoutGrid, RotateCcw, Smartphone } from 'lucide-react';
 import { LacosApp } from '../app/LacosApp';
-import { hashParaRota, rotaParaHash, topoEscuro, type Rota } from '../app/navegacao';
+import { corDoTopo, hashParaRota, rotaParaHash, topoEscuro, type Rota } from '../app/navegacao';
 import { useLoja } from '../estado/loja';
 import { ALTURA_MOLDURA, Moldura } from './Moldura';
 
@@ -84,7 +84,7 @@ function TelasLadoALado({ aoVoltar }: { aoVoltar: () => void }) {
               <span className="mr-2 inline-grid size-6 place-items-center rounded-full bg-white text-xs text-noite">{i + 1}</span>
               {j.rotulo}
             </p>
-            <Moldura topoEscuro={topoEscuro(j.rota)} escala={escala}>
+            <Moldura topoEscuro={topoEscuro(j.rota)} corFundo={corDoTopo(j.rota)} escala={escala}>
               <LacosApp rotaInicial={j.rota} moldura />
             </Moldura>
           </li>
@@ -183,7 +183,7 @@ export function Palco() {
         </div>
       </aside>
 
-      <Moldura topoEscuro={topoEscuro(rota)} escala={escala}>
+      <Moldura topoEscuro={topoEscuro(rota)} corFundo={corDoTopo(rota)} escala={escala}>
         <LacosApp key={inicio.chave} rotaInicial={inicio.rota} moldura aoMudarRota={aoMudarRota} />
       </Moldura>
     </div>

@@ -52,6 +52,20 @@ export const mostraAbas = (rota: Rota) =>
 export const topoEscuro = (rota: Rota) =>
   rota.tela === 'boas-vindas' || rota.tela === 'psicoterapia';
 
+export function corDoTopo(rota: Rota): string {
+  switch (rota.tela) {
+    case 'boas-vindas':
+    case 'psicoterapia':
+      return 'bg-azul';
+    case 'cadastro':
+      return 'bg-ciano-claro';
+    case 'perfil':
+      return 'bg-amarelo-claro';
+    default:
+      return 'bg-fundo';
+  }
+}
+
 export function rotaParaHash(rota: Rota): string {
   if ('id' in rota) return `#/${rota.tela}/${encodeURIComponent(rota.id)}`;
   if (rota.tela === 'cadastro' && rota.modo) return `#/cadastro/${rota.modo}`;
